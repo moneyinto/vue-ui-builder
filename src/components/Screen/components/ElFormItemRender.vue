@@ -24,5 +24,5 @@ const style = useStyle(widget);
 
 const attributes = useAttributes(widget);
 
-provide("modelKeyName", widget.value.options?.props);
+provide("modelKeyName", widget.value.options?.prop);
 </script>

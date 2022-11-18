@@ -73,7 +73,10 @@ const slide = ref<ISlide>({
             value: "activity",
             type: WidgetTypes.FORM,
             component: WidgetComponents.FORM,
-            options: {},
+            style: {
+                width: "600px",
+                padding: "10px 20px"
+            },
             widgetList: [
                 {
                     id: createRandomCode(),
@@ -82,8 +85,15 @@ const slide = ref<ISlide>({
                     type: WidgetTypes.FORM_ITEM,
                     component: WidgetComponents.FORM_ITEM,
                     options: {
-                        props: "activityName",
-                        label: "活动名称"
+                        prop: "activityName",
+                        label: "活动名称",
+                        required: true,
+                        rules: [
+                            {
+                                required: true,
+                                message: "请填写活动名称"
+                            }
+                        ]
                     },
                     widgetList: [
                         {

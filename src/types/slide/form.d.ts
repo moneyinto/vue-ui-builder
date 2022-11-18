@@ -7,7 +7,7 @@ import type { FormRules } from "element-plus";
  */
 export interface IFormOptions {
     model?: string;
-    rules?: string;
+    rules?: FormRules;
     ref?: string;
     inline?: boolean;
     labelPosition?: "left" | "right" | "top";
@@ -26,7 +26,9 @@ export interface IFormWidget extends IBaseWidget {
  * form-item
  */
 export interface IFormItemOptions {
-    props?: string;
+    prop?: string;
+    required?: boolean;
+    rules?: FormItemRule[];
     [key: string]: unknown;
 }
 

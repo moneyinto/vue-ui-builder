@@ -4,17 +4,26 @@
         :model="modelForm"
         :style="style"
         v-bind="attributes"
+        ref="ruleFormRef"
     >
         <Widget
             v-for="widgetChild in widget.widgetList"
             :key="widgetChild.id"
             :widget="widgetChild"
         />
+
+        <el-form-item style="margin-top: 30px">
+            <el-button type="primary" @click="submitForm(ruleFormRef)">
+                提交
+            </el-button>
+            <el-button @click="resetForm(ruleFormRef)">重置</el-button>
+        </el-form-item>
     </el-form>
 </template>
 
 <script name="ElFormRender" setup lang="ts">
-import { PropType, provide, reactive, toRefs } from "vue";
+import { PropType, provide, reactive, ref, toRefs } from "vue";
+import { FormInstance } from "element-plus";
 import useStyle from "./hooks/useStyle";
 import useAttributes from "./hooks/useAttributes";
 import { IFormWidget } from "@/types/slide/form";
@@ -31,17 +40,32 @@ const { widget } = toRefs(props);
 
 const style = useStyle(widget);
 
-const propsKeys = widget.value.widgetList?.map((item) => item.options?.props);
+const attributes = useAttributes(widget);
 
+// 处理modelForm变量定义
+const propKeys = widget.value.widgetList?.map((item) => item.options?.prop);
 const modelFormPreset: { [key: string]: string } = {};
-
-propsKeys?.forEach((key) => {
+propKeys?.forEach((key) => {
     if (key) modelFormPreset[key] = "";
 });
-
 const modelForm = reactive(modelFormPreset);
 
 provide("modelForm", modelForm);
 
-const attributes = useAttributes(widget);
+const ruleFormRef = ref();
+const submitForm = async (formEl: FormInstance | undefined) => {
+    if (!formEl) return;
+    await formEl.validate((valid, fields) => {
+        if (valid) {
+            console.log("submit!", modelForm);
+        } else {
+            console.log("error submit!", fields, modelForm);
+        }
+    });
+};
+
+const resetForm = (formEl: FormInstance | undefined) => {
+    if (!formEl) return;
+    formEl.resetFields();
+};
 </script>
