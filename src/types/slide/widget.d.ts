@@ -1,5 +1,9 @@
 import { IClassNames, IStyle } from "./base";
-import { IDateTimeOptions, IDateTimePickerWidget, ITimePickerWidget } from "./dateTime";
+import {
+    IDateTimeOptions,
+    IDateTimePickerWidget,
+    ITimePickerWidget
+} from "./dateTime";
 import {
     IFormItemOptions,
     IFormItemWidget,
@@ -9,6 +13,7 @@ import {
 import { IColOptions, IColWidget, IRowOptions, IRowWidget } from "./grid";
 import { IInputOptions, IInputWidget } from "./input";
 import { ISelectItemWidget, ISelectOptions, ISelectWidget } from "./select";
+import { ISwitchOptions, ISwitchWidget } from "./switch";
 import { ITextWidget } from "./text";
 
 /**
@@ -48,7 +53,8 @@ export type IWidget =
     | ISelectWidget
     | ISelectItemWidget
     | IDateTimePickerWidget
-    | ITimePickerWidget;
+    | ITimePickerWidget
+    | ISwitchWidget;
 
 export type IWidgetOptions =
     | IColOptions
@@ -57,4 +63,5 @@ export type IWidgetOptions =
     | IFormItemOptions
     | IInputOptions
     | ISelectOptions
-    | IDateTimeOptions;
+    | IDateTimeOptions
+    | ISwitchOptions;

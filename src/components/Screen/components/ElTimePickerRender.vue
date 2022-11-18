@@ -9,7 +9,7 @@
     <el-time-picker
         v-else
         class="lyx-adjust__prefix"
-        v-model="modelInput"
+        v-model="modelValue"
         :style="style"
         v-bind="attributes"
     />
@@ -30,11 +30,12 @@ const props = defineProps({
 });
 
 const { widget } = toRefs(props);
-const modelInput = ref("");
+const modelValue = ref("");
 
 const style = useStyle(widget);
 
 const attributes = useAttributes(widget);
 
 const { modelForm, modelKeyName } = useFom();
+if (modelForm) modelForm[modelKeyName] = "";
 </script>

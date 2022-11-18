@@ -37,4 +37,5 @@ const style = useStyle(widget);
 const attributes = useAttributes(widget);
 
 const { modelForm, modelKeyName } = useFom();
+if (modelForm) modelForm[modelKeyName] = "";
 </script>

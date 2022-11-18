@@ -13,7 +13,7 @@
     </el-select>
     <el-select
         v-else
-        v-model="modelSelect"
+        v-model="modelValue"
         :style="style"
         v-bind="attributes"
     >
@@ -41,11 +41,12 @@ const props = defineProps({
 });
 
 const { widget } = toRefs(props);
-const modelSelect = ref("");
+const modelValue = ref("");
 
 const style = useStyle(widget);
 
 const attributes = useAttributes(widget);
 
 const { modelForm, modelKeyName } = useFom();
+if (modelForm) modelForm[modelKeyName] = "";
 </script>

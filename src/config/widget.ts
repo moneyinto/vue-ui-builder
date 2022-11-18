@@ -8,7 +8,8 @@ export const enum WidgetTypes {
     SELECT = "select",
     SELECT_ITEM = "select-item",
     DAET_TIME_PICKER = "date-picker",
-    TIME_PICKER = "time-picker"
+    TIME_PICKER = "time-picker",
+    SWITCH = "switch"
 }
 
 export const enum WidgetComponents {
@@ -21,5 +22,6 @@ export const enum WidgetComponents {
     SELECT = "el-select",
     SELECT_ITEM = "el-option",
     DAET_TIME_PICKER = "el-date-picker",
-    TIME_PICKER = "el-time-picker"
+    TIME_PICKER = "el-time-picker",
+    SWITCH = "el-switch"
 }

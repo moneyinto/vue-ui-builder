@@ -282,6 +282,26 @@ export const previewSlide: ISlide = {
                             ]
                         }
                     ]
+                },
+                {
+                    id: createRandomCode(),
+                    name: "必须参加",
+                    value: "join",
+                    type: WidgetTypes.FORM_ITEM,
+                    component: WidgetComponents.FORM_ITEM,
+                    options: {
+                        label: "必须参加",
+                        prop: "join"
+                    },
+                    widgetList: [
+                        {
+                            id: createRandomCode(),
+                            name: "",
+                            value: "",
+                            type: WidgetTypes.SWITCH,
+                            component: WidgetComponents.SWITCH
+                        }
+                    ]
                 }
             ]
         }
