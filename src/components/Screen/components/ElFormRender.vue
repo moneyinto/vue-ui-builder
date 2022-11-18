@@ -42,12 +42,7 @@ const style = useStyle(widget);
 
 const attributes = useAttributes(widget);
 
-// 处理modelForm变量定义
-const propKeys = widget.value.widgetList?.map((item) => item.options?.prop);
 const modelFormPreset: { [key: string]: string } = {};
-propKeys?.forEach((key) => {
-    if (key) modelFormPreset[key] = "";
-});
 const modelForm = reactive(modelFormPreset);
 
 provide("modelForm", modelForm);

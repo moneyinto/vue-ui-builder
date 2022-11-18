@@ -6,7 +6,9 @@ export const enum WidgetTypes {
     FORM_ITEM = "form-item",
     INPUT = "input",
     SELECT = "select",
-    SELECT_ITEM = "select_item"
+    SELECT_ITEM = "select-item",
+    DAET_TIME_PICKER = "date-picker",
+    TIME_PICKER = "time-picker"
 }
 
 export const enum WidgetComponents {
@@ -17,5 +19,7 @@ export const enum WidgetComponents {
     FORM_ITEM = "el-form-item",
     INPUT = "el-input",
     SELECT = "el-select",
-    SELECT_ITEM = "el-option"
+    SELECT_ITEM = "el-option",
+    DAET_TIME_PICKER = "el-date-picker",
+    TIME_PICKER = "el-time-picker"
 }

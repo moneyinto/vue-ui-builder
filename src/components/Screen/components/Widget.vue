@@ -14,6 +14,8 @@ import ElFormItemRender from "./ElFormItemRender.vue";
 import ElInputRender from "./ElInputRender.vue";
 import ElSelectRender from "./ElSelectRender.vue";
 import ElSelectItemRender from "./ElSelectItemRender.vue";
+import ElDateTimePickerRender from "./ElDateTimePickerRender.vue";
+import ElTimePickerRender from "./ElTimePickerRender.vue";
 
 const props = defineProps({
     widget: {
@@ -33,7 +35,9 @@ const renderComponent = computed(() => {
         [WidgetComponents.FORM_ITEM]: ElFormItemRender,
         [WidgetComponents.INPUT]: ElInputRender,
         [WidgetComponents.SELECT]: ElSelectRender,
-        [WidgetComponents.SELECT_ITEM]: ElSelectItemRender
+        [WidgetComponents.SELECT_ITEM]: ElSelectItemRender,
+        [WidgetComponents.DAET_TIME_PICKER]: ElDateTimePickerRender,
+        [WidgetComponents.TIME_PICKER]: ElTimePickerRender
     }[widget.value.component];
 });
 </script>
