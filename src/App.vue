@@ -101,7 +101,70 @@ const slide = ref<ISlide>({
                             name: "活动名称输入框",
                             value: "activityName",
                             type: WidgetTypes.INPUT,
-                            component: WidgetComponents.INPUT
+                            component: WidgetComponents.INPUT,
+                            options: {
+                                placeholder: "请输入活动名称"
+                            }
+                        }
+                    ]
+                },
+                {
+                    id: createRandomCode(),
+                    name: "活动地址",
+                    value: "activityAddress",
+                    type: WidgetTypes.FORM_ITEM,
+                    component: WidgetComponents.FORM_ITEM,
+                    options: {
+                        prop: "activityAddress",
+                        label: "活动地址",
+                        required: true,
+                        rules: [
+                            {
+                                required: true,
+                                message: "请选择活动地址"
+                            }
+                        ]
+                    },
+                    widgetList: [
+                        {
+                            id: createRandomCode(),
+                            name: "活动地址选择框",
+                            value: "activityAddress",
+                            type: WidgetTypes.SELECT,
+                            component: WidgetComponents.SELECT,
+                            options: {
+                                placeholder: "请选择活动地址"
+                            },
+                            widgetList: [
+                                {
+                                    id: createRandomCode(),
+                                    name: "北京",
+                                    value: "beijing",
+                                    type: WidgetTypes.SELECT_ITEM,
+                                    component: WidgetComponents.SELECT_ITEM
+                                },
+                                {
+                                    id: createRandomCode(),
+                                    name: "上海",
+                                    value: "shanghai",
+                                    type: WidgetTypes.SELECT_ITEM,
+                                    component: WidgetComponents.SELECT_ITEM
+                                },
+                                {
+                                    id: createRandomCode(),
+                                    name: "天津",
+                                    value: "tianjin",
+                                    type: WidgetTypes.SELECT_ITEM,
+                                    component: WidgetComponents.SELECT_ITEM
+                                },
+                                {
+                                    id: createRandomCode(),
+                                    name: "重庆",
+                                    value: "chongqing",
+                                    type: WidgetTypes.SELECT_ITEM,
+                                    component: WidgetComponents.SELECT_ITEM
+                                }
+                            ]
                         }
                     ]
                 }

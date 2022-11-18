@@ -12,6 +12,8 @@ import SpanRender from "./SpanRender.vue";
 import ElFormRender from "./ElFormRender.vue";
 import ElFormItemRender from "./ElFormItemRender.vue";
 import ElInputRender from "./ElInputRender.vue";
+import ElSelectRender from "./ElSelectRender.vue";
+import ElSelectItemRender from "./ElSelectItemRender.vue";
 
 const props = defineProps({
     widget: {
@@ -29,7 +31,9 @@ const renderComponent = computed(() => {
         [WidgetComponents.TEXT]: SpanRender,
         [WidgetComponents.FORM]: ElFormRender,
         [WidgetComponents.FORM_ITEM]: ElFormItemRender,
-        [WidgetComponents.INPUT]: ElInputRender
+        [WidgetComponents.INPUT]: ElInputRender,
+        [WidgetComponents.SELECT]: ElSelectRender,
+        [WidgetComponents.SELECT_ITEM]: ElSelectItemRender
     }[widget.value.component];
 });
 </script>

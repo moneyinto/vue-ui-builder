@@ -7,6 +7,7 @@ import {
 } from "./form";
 import { IColOptions, IColWidget, IRowOptions, IRowWidget } from "./grid";
 import { IInputOptions, IInputWidget } from "./input";
+import { ISelectItemWidget, ISelectOptions, ISelectWidget } from "./select";
 import { ITextWidget } from "./text";
 
 /**
@@ -42,11 +43,14 @@ export type IWidget =
     | IColWidget
     | IFormWidget
     | IFormItemWidget
-    | IInputWidget;
+    | IInputWidget
+    | ISelectWidget
+    | ISelectItemWidget;
 
 export type IWidgetOptions =
     | IColOptions
     | IRowOptions
     | IFormOptions
     | IFormItemOptions
-    | IInputOptions;
+    | IInputOptions
+    | ISelectOptions;

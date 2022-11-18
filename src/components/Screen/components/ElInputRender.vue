@@ -1,5 +1,10 @@
 <template>
-    <el-input v-if="modelForm && modelKeyName" v-model="modelForm[modelKeyName]" :style="style" v-bind="attributes" />
+    <el-input
+        v-if="modelForm && modelKeyName"
+        v-model="modelForm[modelKeyName]"
+        :style="style"
+        v-bind="attributes"
+    />
     <el-input v-else v-model="modelInput" :style="style" v-bind="attributes" />
 </template>
 

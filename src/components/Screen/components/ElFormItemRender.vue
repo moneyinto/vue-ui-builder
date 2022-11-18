@@ -1,6 +1,10 @@
 <template>
     <el-form-item :style="style" v-bind="attributes">
-        <Widget v-for="widgetChild in widget.widgetList" :key="widgetChild.id" :widget="widgetChild" />
+        <Widget
+            v-for="widgetChild in widget.widgetList"
+            :key="widgetChild.id"
+            :widget="widgetChild"
+        />
     </el-form-item>
 </template>
 
