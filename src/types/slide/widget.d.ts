@@ -35,6 +35,7 @@ export interface IBaseWidget {
     id: string;
     name: string;
     value?: string;
+    ref?: string;
     styleInClass?: IStyle;
     classNames?: IClassNames;
     style?: IStyle;

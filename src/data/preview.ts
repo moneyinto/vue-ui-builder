@@ -3,6 +3,7 @@ import { ISlide } from "@/types/slide";
 import { createRandomCode } from "@/utils";
 
 export const previewSlide: ISlide = {
+    name: "testGenerator",
     widgetList: [
         {
             id: createRandomCode(),
@@ -10,9 +11,11 @@ export const previewSlide: ISlide = {
             value: "grid",
             type: WidgetTypes.ROW,
             component: WidgetComponents.ROW,
-            style: {
-                width: "400px",
-                backgroundColor: "red"
+            classNames: {
+                lyxMyRow: {
+                    width: "400px",
+                    backgroundColor: "red"
+                }
             },
             options: {
                 gutter: 20
@@ -66,9 +69,13 @@ export const previewSlide: ISlide = {
             value: "activity",
             type: WidgetTypes.FORM,
             component: WidgetComponents.FORM,
-            style: {
-                width: "600px",
-                padding: "10px 20px"
+            modelName: "modelForm",
+            ref: "modelFormRef",
+            classNames: {
+                elFormVertical: {
+                    width: "600px",
+                    padding: "10px 20px"
+                }
             },
             widgetList: [
                 {
@@ -80,14 +87,15 @@ export const previewSlide: ISlide = {
                     options: {
                         prop: "activityName",
                         label: "活动名称",
-                        required: true,
-                        rules: [
-                            {
-                                required: true,
-                                message: "请填写活动名称"
-                            }
-                        ]
+                        required: true
                     },
+                    rulesName: "activityNameRules",
+                    rules: [
+                        {
+                            required: true,
+                            message: "请填写活动名称"
+                        }
+                    ],
                     widgetList: [
                         {
                             id: createRandomCode(),
@@ -110,14 +118,15 @@ export const previewSlide: ISlide = {
                     options: {
                         prop: "activityAddress",
                         label: "活动地址",
-                        required: true,
-                        rules: [
-                            {
-                                required: true,
-                                message: "请选择活动地址"
-                            }
-                        ]
+                        required: true
                     },
+                    rulesName: "activityAddressRules",
+                    rules: [
+                        {
+                            required: true,
+                            message: "请选择活动地址"
+                        }
+                    ],
                     widgetList: [
                         {
                             id: createRandomCode(),
@@ -193,15 +202,16 @@ export const previewSlide: ISlide = {
                                     component: WidgetComponents.FORM_ITEM,
                                     options: {
                                         prop: "activityDate",
-                                        required: true,
-                                        rules: [
-                                            {
-                                                required: true,
-                                                message: "请选择活动日期",
-                                                trigger: "change"
-                                            }
-                                        ]
+                                        required: true
                                     },
+                                    rulesName: "activityDateRules",
+                                    rules: [
+                                        {
+                                            required: true,
+                                            message: "请选择活动日期",
+                                            trigger: "change"
+                                        }
+                                    ],
                                     widgetList: [
                                         {
                                             id: createRandomCode(),
@@ -209,6 +219,9 @@ export const previewSlide: ISlide = {
                                             value: "",
                                             type: WidgetTypes.DAET_TIME_PICKER,
                                             component: WidgetComponents.DAET_TIME_PICKER,
+                                            style: {
+                                                width: "100%"
+                                            },
                                             options: {
                                                 type: "date",
                                                 placeholder: "请选择活动日期"
@@ -224,6 +237,9 @@ export const previewSlide: ISlide = {
                             value: "",
                             type: WidgetTypes.COL,
                             component: WidgetComponents.COL,
+                            style: {
+                                textAlign: "center"
+                            },
                             options: {
                                 span: 2
                             },
@@ -256,15 +272,16 @@ export const previewSlide: ISlide = {
                                     component: WidgetComponents.FORM_ITEM,
                                     options: {
                                         prop: "activityTime",
-                                        required: true,
-                                        rules: [
-                                            {
-                                                required: true,
-                                                message: "请选择活动时间",
-                                                trigger: "change"
-                                            }
-                                        ]
+                                        required: true
                                     },
+                                    rulesName: "activityTimeRules",
+                                    rules: [
+                                        {
+                                            required: true,
+                                            message: "请选择活动时间",
+                                            trigger: "change"
+                                        }
+                                    ],
                                     widgetList: [
                                         {
                                             id: createRandomCode(),
@@ -272,6 +289,9 @@ export const previewSlide: ISlide = {
                                             value: "",
                                             type: WidgetTypes.TIME_PICKER,
                                             component: WidgetComponents.TIME_PICKER,
+                                            style: {
+                                                width: "100%"
+                                            },
                                             options: {
                                                 format: "HH:mm",
                                                 placeholder: "请选择活动时间"

@@ -9,16 +9,21 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "file-saver": "^2.0.5",
+        "js-beautify": "^1.14.3",
         "lyx_view": "0.0.2",
         "vue": "^3.2.41"
     },
     "devDependencies": {
+        "@types/file-saver": "^2.0.5",
+        "@types/js-beautify": "^1.13.3",
         "@types/node": "^18.11.9",
         "@vitejs/plugin-vue": "^3.2.0",
         "@vue/eslint-config-standard": "^8.0.1",
         "@vue/eslint-config-typescript": "^11.0.2",
         "eslint": "^8.27.0",
         "eslint-plugin-vue": "^9.7.0",
+        "sass": "^1.56.1",
         "typescript": "^4.6.4",
         "vite": "^3.2.3",
         "vite-plugin-eslint": "^1.8.1",

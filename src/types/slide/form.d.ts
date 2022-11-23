@@ -1,13 +1,11 @@
 import { WidgetComponents, WidgetTypes } from "@/config/widget";
 import { IBaseWidget, IWidget } from "./widget";
-import type { FormRules } from "element-plus";
+import type { FormRules, FormItemRule } from "element-plus";
 
 /**
  * form
  */
 export interface IFormOptions {
-    model?: string;
-    rules?: FormRules;
     ref?: string;
     inline?: boolean;
     labelPosition?: "left" | "right" | "top";
@@ -20,6 +18,9 @@ export interface IFormWidget extends IBaseWidget {
     component: WidgetComponents.FORM;
     widgetList?: IFormItemWidget[];
     options?: IFormOptions;
+    modelName?: string;
+    rules?: FormRules;
+    rulesName?: string;
 }
 
 /**
@@ -28,7 +29,6 @@ export interface IFormWidget extends IBaseWidget {
 export interface IFormItemOptions {
     prop?: string;
     required?: boolean;
-    rules?: FormItemRule[];
     [key: string]: unknown;
 }
 
@@ -37,4 +37,6 @@ export interface IFormItemWidget extends IBaseWidget {
     component: WidgetComponents.FORM_ITEM;
     widgetList?: IWidget[];
     options?: IFormItemOptions;
+    rules?: FormItemRule[];
+    rulesName?: string;
 }

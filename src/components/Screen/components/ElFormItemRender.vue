@@ -1,5 +1,5 @@
 <template>
-    <el-form-item :style="style" v-bind="attributes">
+    <el-form-item :style="style" :rules="rules" v-bind="attributes">
         <Widget
             v-for="widgetChild in widget.widgetList"
             :key="widgetChild.id"
@@ -27,6 +27,8 @@ const { widget } = toRefs(props);
 const style = useStyle(widget);
 
 const attributes = useAttributes(widget);
+
+const rules = widget.value.rules || [];
 
 provide("modelKeyName", widget.value.options?.prop);
 </script>

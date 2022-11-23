@@ -7,7 +7,6 @@ export interface ISelectOptions {
 }
 
 export interface ISelectWidget extends IBaseWidget {
-[x: string]: any;
     type: WidgetTypes.SELECT;
     component: WidgetComponents.SELECT;
     options?: ISelectOptions;

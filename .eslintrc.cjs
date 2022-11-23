@@ -16,7 +16,7 @@ module.exports = {
         "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
         indent: ["error", 4],
         semi: ["error", "always"],
-        quotes: [2, "double"],
+        quotes: "off",
         "space-before-function-paren": [
             "error",
             {
@@ -31,6 +31,7 @@ module.exports = {
         "n/no-callback-literal": "off",
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/no-explicit-any": ["off"],
-        "vue/multi-word-component-names": ["off"]
+        "vue/multi-word-component-names": ["off"],
+        "@typescript-eslint/no-non-null-assertion": "off"
     }
 };
