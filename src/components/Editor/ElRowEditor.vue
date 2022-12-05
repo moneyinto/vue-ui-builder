@@ -1,9 +1,9 @@
 <template>
     <el-row :style="style" v-bind="attributes">
         <draggable
-            class="el-row"
+            class="el-row drag-container"
             style="width: 100%;"
-            group="{ name: 'drag' }"
+            group="widget"
             :list="widget.widgetList"
             :animation="340"
             item-key="id"
@@ -39,3 +39,10 @@ const style = useStyle(widget);
 
 const attributes = useAttributes(widget);
 </script>
+
+<style lang="scss" scoped>
+.drag-container {
+    min-height: 60px;
+    width: 100%;
+}
+</style>

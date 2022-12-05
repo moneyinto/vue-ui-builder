@@ -3,7 +3,6 @@
         class="lyx-pre-view"
         title="预览"
         fullscreen
-        destroy-on-close
     >
         <Preview :slide="slide" />
     </el-dialog>

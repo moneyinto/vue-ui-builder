@@ -2,7 +2,8 @@
     <el-dialog
         class="lyx-code-view el-dialog-fixed"
         title="代码"
-        destroy-on-close
+        v-model="modelValue"
+        :before-close="cancel"
     >
         <el-form>
             <el-form-item label="文件名：">
@@ -35,26 +36,36 @@ import "codemirror/mode/vue/vue.js";
 // theme
 import "codemirror/theme/ayu-dark.css";
 
-import { computed, ref } from "vue";
+import { ref, toRefs, watch } from "vue";
 import { useStore } from "@/store";
 import { getVue3Code, saveFile } from "@/utils";
 import { ElMessage } from "element-plus";
 
 const store = useStore();
-const widgetList = computed(() => store.widgetList);
 const code = ref("");
 const fileName = ref("test");
+const props = defineProps({
+    modelValue: {
+        type: Boolean
+    }
+});
+
+const { modelValue } = toRefs(props);
 
 const emit = defineEmits(["close"]);
 
 const initCode = () => {
     code.value = getVue3Code({
         name: fileName.value,
-        widgetList: JSON.parse(JSON.stringify(widgetList.value))
+        widgetList: JSON.parse(JSON.stringify(store.widgetList))
     });
 };
 
-initCode();
+watch(modelValue, () => {
+    if (modelValue.value) {
+        initCode();
+    }
+});
 
 const cmOptions = ref({
     mode: "text/x-vue", // Language mode
