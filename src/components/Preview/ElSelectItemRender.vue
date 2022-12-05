@@ -5,8 +5,8 @@
 <script name="ElSelectItemRender" setup lang="ts">
 import { ISelectItemWidget } from "@/types/slide/select";
 import { PropType, toRefs } from "vue";
-import useStyle from "./hooks/useStyle";
-import useAttributes from "./hooks/useAttributes";
+import useStyle from "../hooks/useStyle";
+import useAttributes from "../hooks/useAttributes";
 
 const props = defineProps({
     widget: {

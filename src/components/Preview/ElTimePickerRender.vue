@@ -18,9 +18,9 @@
 <script name="ElTimePickerRender" setup lang="ts">
 import { PropType, ref, toRefs } from "vue";
 import { IDateTimePickerWidget } from "@/types/slide/dateTime";
-import useStyle from "./hooks/useStyle";
-import useAttributes from "./hooks/useAttributes";
-import useFom from "./hooks/useForm";
+import useStyle from "../hooks/useStyle";
+import useAttributes from "../hooks/useAttributes";
+import useFom from "../hooks/useForm";
 
 const props = defineProps({
     widget: {

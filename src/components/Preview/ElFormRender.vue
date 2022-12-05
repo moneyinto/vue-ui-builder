@@ -24,8 +24,8 @@
 <script name="ElFormRender" setup lang="ts">
 import { PropType, provide, reactive, ref, toRefs } from "vue";
 import { FormInstance } from "element-plus";
-import useStyle from "./hooks/useStyle";
-import useAttributes from "./hooks/useAttributes";
+import useStyle from "../hooks/useStyle";
+import useAttributes from "../hooks/useAttributes";
 import { IFormWidget } from "@/types/slide/form";
 import Widget from "./Widget.vue";
 

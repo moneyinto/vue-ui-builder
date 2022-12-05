@@ -10,8 +10,8 @@
 
 <script name="ElFormItemRender" setup lang="ts">
 import { PropType, provide, toRefs } from "vue";
-import useStyle from "./hooks/useStyle";
-import useAttributes from "./hooks/useAttributes";
+import useStyle from "../hooks/useStyle";
+import useAttributes from "../hooks/useAttributes";
 import { IFormItemWidget } from "@/types/slide/form";
 import Widget from "./Widget.vue";
 

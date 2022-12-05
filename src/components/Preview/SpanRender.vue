@@ -7,7 +7,7 @@
 <script name="ElColRender" setup lang="ts">
 import { ITextWidget } from "@/types/slide/text";
 import { PropType, toRefs } from "vue";
-import useStyle from "./hooks/useStyle";
+import useStyle from "../hooks/useStyle";
 
 const props = defineProps({
     widget: {

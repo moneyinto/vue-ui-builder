@@ -11,12 +11,6 @@ export const previewSlide: ISlide = {
             value: "grid",
             type: WidgetTypes.ROW,
             component: WidgetComponents.ROW,
-            classNames: {
-                lyxMyRow: {
-                    width: "400px",
-                    backgroundColor: "red"
-                }
-            },
             options: {
                 gutter: 20
             },
@@ -72,10 +66,7 @@ export const previewSlide: ISlide = {
             modelName: "modelForm",
             ref: "modelFormRef",
             classNames: {
-                elFormVertical: {
-                    width: "600px",
-                    padding: "10px 20px"
-                }
+                elFormVertical: {}
             },
             widgetList: [
                 {
@@ -187,115 +178,123 @@ export const previewSlide: ISlide = {
                         {
                             id: createRandomCode(),
                             name: "",
-                            value: "",
-                            type: WidgetTypes.COL,
-                            component: WidgetComponents.COL,
-                            options: {
-                                span: 11
-                            },
+                            type: WidgetTypes.ROW,
+                            component: WidgetComponents.ROW,
                             widgetList: [
                                 {
                                     id: createRandomCode(),
                                     name: "",
                                     value: "",
-                                    type: WidgetTypes.FORM_ITEM,
-                                    component: WidgetComponents.FORM_ITEM,
+                                    type: WidgetTypes.COL,
+                                    component: WidgetComponents.COL,
                                     options: {
-                                        prop: "activityDate",
-                                        required: true
+                                        span: 11
                                     },
-                                    rulesName: "activityDateRules",
-                                    rules: [
-                                        {
-                                            required: true,
-                                            message: "请选择活动日期",
-                                            trigger: "change"
-                                        }
-                                    ],
                                     widgetList: [
                                         {
                                             id: createRandomCode(),
                                             name: "",
                                             value: "",
-                                            type: WidgetTypes.DAET_TIME_PICKER,
-                                            component: WidgetComponents.DAET_TIME_PICKER,
-                                            style: {
-                                                width: "100%"
-                                            },
+                                            type: WidgetTypes.FORM_ITEM,
+                                            component: WidgetComponents.FORM_ITEM,
                                             options: {
-                                                type: "date",
-                                                placeholder: "请选择活动日期"
-                                            }
+                                                prop: "activityDate",
+                                                required: true
+                                            },
+                                            rulesName: "activityDateRules",
+                                            rules: [
+                                                {
+                                                    required: true,
+                                                    message: "请选择活动日期",
+                                                    trigger: "change"
+                                                }
+                                            ],
+                                            widgetList: [
+                                                {
+                                                    id: createRandomCode(),
+                                                    name: "",
+                                                    value: "",
+                                                    type: WidgetTypes.DAET_TIME_PICKER,
+                                                    component: WidgetComponents.DAET_TIME_PICKER,
+                                                    style: {
+                                                        width: "100%"
+                                                    },
+                                                    options: {
+                                                        type: "date",
+                                                        placeholder: "请选择活动日期"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
-                                }
-                            ]
-                        },
-                        {
-                            id: createRandomCode(),
-                            name: "",
-                            value: "",
-                            type: WidgetTypes.COL,
-                            component: WidgetComponents.COL,
-                            style: {
-                                textAlign: "center"
-                            },
-                            options: {
-                                span: 2
-                            },
-                            widgetList: [
+                                },
                                 {
                                     id: createRandomCode(),
                                     name: "",
                                     value: "",
-                                    type: WidgetTypes.TEXT,
-                                    component: WidgetComponents.TEXT,
-                                    text: "-"
-                                }
-                            ]
-                        },
-                        {
-                            id: createRandomCode(),
-                            name: "",
-                            value: "",
-                            type: WidgetTypes.COL,
-                            component: WidgetComponents.COL,
-                            options: {
-                                span: 11
-                            },
-                            widgetList: [
-                                {
-                                    id: createRandomCode(),
-                                    name: "",
-                                    value: "",
-                                    type: WidgetTypes.FORM_ITEM,
-                                    component: WidgetComponents.FORM_ITEM,
-                                    options: {
-                                        prop: "activityTime",
-                                        required: true
+                                    type: WidgetTypes.COL,
+                                    component: WidgetComponents.COL,
+                                    style: {
+                                        textAlign: "center"
                                     },
-                                    rulesName: "activityTimeRules",
-                                    rules: [
-                                        {
-                                            required: true,
-                                            message: "请选择活动时间",
-                                            trigger: "change"
-                                        }
-                                    ],
+                                    options: {
+                                        span: 2
+                                    },
                                     widgetList: [
                                         {
                                             id: createRandomCode(),
                                             name: "",
                                             value: "",
-                                            type: WidgetTypes.TIME_PICKER,
-                                            component: WidgetComponents.TIME_PICKER,
-                                            style: {
-                                                width: "100%"
-                                            },
+                                            type: WidgetTypes.TEXT,
+                                            component: WidgetComponents.TEXT,
+                                            text: "-"
+                                        }
+                                    ]
+                                },
+                                {
+                                    id: createRandomCode(),
+                                    name: "",
+                                    value: "",
+                                    type: WidgetTypes.COL,
+                                    component: WidgetComponents.COL,
+                                    options: {
+                                        span: 11
+                                    },
+                                    widgetList: [
+                                        {
+                                            id: createRandomCode(),
+                                            name: "",
+                                            value: "",
+                                            type: WidgetTypes.FORM_ITEM,
+                                            component: WidgetComponents.FORM_ITEM,
                                             options: {
-                                                format: "HH:mm",
-                                                placeholder: "请选择活动时间"
-                                            }
+                                                prop: "activityTime",
+                                                required: true
+                                            },
+                                            rulesName: "activityTimeRules",
+                                            rules: [
+                                                {
+                                                    required: true,
+                                                    message: "请选择活动时间",
+                                                    trigger: "change"
+                                                }
+                                            ],
+                                            widgetList: [
+                                                {
+                                                    id: createRandomCode(),
+                                                    name: "",
+                                                    value: "",
+                                                    type: WidgetTypes.TIME_PICKER,
+                                                    component: WidgetComponents.TIME_PICKER,
+                                                    style: {
+                                                        width: "100%"
+                                                    },
+                                                    options: {
+                                                        format: "HH:mm",
+                                                        placeholder: "请选择活动时间"
+                                                    }
+                                                }
+                                            ]
                                         }
                                     ]
                                 }

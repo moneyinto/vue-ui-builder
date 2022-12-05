@@ -11,9 +11,9 @@
 <script name="ElSwitchRender" setup lang="ts">
 import { PropType, ref, toRefs } from "vue";
 import { ISwitchWidget } from "@/types/slide/switch";
-import useStyle from "./hooks/useStyle";
-import useAttributes from "./hooks/useAttributes";
-import useFom from "./hooks/useForm";
+import useStyle from "../hooks/useStyle";
+import useAttributes from "../hooks/useAttributes";
+import useFom from "../hooks/useForm";
 
 const props = defineProps({
     widget: {

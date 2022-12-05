@@ -11,8 +11,8 @@
 <script name="ElColRender" setup lang="ts">
 import { IColWidget } from "@/types/slide/grid";
 import { PropType, toRefs } from "vue";
-import useStyle from "./hooks/useStyle";
-import useAttributes from "./hooks/useAttributes";
+import useStyle from "../hooks/useStyle";
+import useAttributes from "../hooks/useAttributes";
 import Widget from "./Widget.vue";
 
 const props = defineProps({

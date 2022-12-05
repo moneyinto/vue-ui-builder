@@ -11,9 +11,9 @@
 <script name="ElInputRender" setup lang="ts">
 import { PropType, ref, toRefs } from "vue";
 import { IInputWidget } from "@/types/slide/input";
-import useStyle from "./hooks/useStyle";
-import useAttributes from "./hooks/useAttributes";
-import useFom from "./hooks/useForm";
+import useStyle from "../hooks/useStyle";
+import useAttributes from "../hooks/useAttributes";
+import useFom from "../hooks/useForm";
 
 const props = defineProps({
     widget: {

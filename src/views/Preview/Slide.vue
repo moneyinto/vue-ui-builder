@@ -5,7 +5,7 @@
 <script name="Slide" setup lang="ts">
 import { ISlide } from "@/types/slide";
 import { PropType, toRefs } from "vue";
-import Widget from "./components/Widget.vue";
+import Widget from "@/components/Preview/Widget.vue";
 
 const props = defineProps({
     slide: {

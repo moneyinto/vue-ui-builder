@@ -28,9 +28,9 @@
 <script name="ElSelectRender" setup lang="ts">
 import { PropType, ref, toRefs } from "vue";
 import { ISelectWidget } from "@/types/slide/select";
-import useStyle from "./hooks/useStyle";
-import useAttributes from "./hooks/useAttributes";
-import useFom from "./hooks/useForm";
+import useStyle from "../hooks/useStyle";
+import useAttributes from "../hooks/useAttributes";
+import useFom from "../hooks/useForm";
 import Widget from "./Widget.vue";
 
 const props = defineProps({

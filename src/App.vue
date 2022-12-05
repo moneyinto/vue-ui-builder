@@ -1,12 +1,15 @@
 <template>
-    <Screen :slide="slide" />
+    <!-- <Preview :slide="slide" />
 
-    <el-button style="margin-left: 20px;" @click="download()">下载</el-button>
+    <el-button style="margin-left: 20px;" @click="download()">下载</el-button> -->
+
+    <Editor />
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import Screen from "./components/Screen/index.vue";
+import Editor from "./views/Editor/index.vue";
+import Preview from "./views/Preview/index.vue";
 import { ISlide } from "./types/slide";
 import { previewSlide } from "./data/preview";
 import { getVue3Code, saveFile } from "@/utils";
