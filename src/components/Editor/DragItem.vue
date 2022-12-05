@@ -127,6 +127,7 @@ const onChange = (dragData: IDragChange) => {
     margin-left: 0 !important;
     margin-right: 0 !important;
     flex: 1;
+    background-color: #fff;
 }
 
 .drag-child-element:hover {

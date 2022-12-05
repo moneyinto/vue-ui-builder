@@ -5,8 +5,8 @@
         </div>
 
         <div class="editor-btns">
-            <el-button type="primary" link @click="openPreview">预览</el-button>
-            <el-button type="primary" link @click="openVueCode">导出Vue</el-button>
+            <el-button type="primary" link @click="openPreview()">预览</el-button>
+            <el-button type="primary" link @click="openVueCode()">导出Vue</el-button>
         </div>
 
         <CodeDialog v-model="showCode" @close="(showCode = false)" />

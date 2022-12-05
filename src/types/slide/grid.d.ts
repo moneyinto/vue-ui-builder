@@ -52,6 +52,6 @@ export interface IRowOptions {
 export interface IRowWidget extends IBaseWidget {
     type: WidgetTypes.ROW;
     component: WidgetComponents.ROW;
-    widgetList?: IColWidget[];
+    widgetList?: IWidget[];
     options?: IRowOptions;
 }
