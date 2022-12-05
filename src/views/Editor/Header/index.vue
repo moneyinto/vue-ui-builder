@@ -5,13 +5,21 @@
         </div>
 
         <div class="editor-btns">
-            <el-button type="primary" link>导出Vue</el-button>
+            <el-button type="primary" link @click="openVueCode">导出Vue</el-button>
         </div>
+
+        <CodeDialog v-model="showCode" @close="(showCode = false)" />
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+import CodeDialog from "./codeDialog.vue";
 
+const showCode = ref(false);
+const openVueCode = () => {
+    showCode.value = true;
+};
 </script>
 
 <style lang="scss" scoped>

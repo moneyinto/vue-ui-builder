@@ -20,7 +20,6 @@ import draggable from "vuedraggable";
 import DragItem from "@/components/Editor/DragItem.vue";
 import useCreateElement from "@/hooks/useCreateElement";
 import { useStore } from "@/store";
-import { IWidget } from "@/types/slide/widget";
 
 const store = useStore();
 const widgetList = computed(() => store.widgetList);

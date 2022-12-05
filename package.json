@@ -9,6 +9,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "codemirror-editor-vue3": "^2.1.7",
         "file-saver": "^2.0.5",
         "js-beautify": "^1.14.3",
         "lyx_view": "0.0.2",
