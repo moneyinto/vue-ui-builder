@@ -18,8 +18,9 @@ import { computed } from "vue";
 import { IDragChange } from "@/types";
 import draggable from "vuedraggable";
 import DragItem from "@/components/Editor/DragItem.vue";
-import useCreateElement from "../hooks/useCreateElement";
+import useCreateElement from "@/hooks/useCreateElement";
 import { useStore } from "@/store";
+import { IWidget } from "@/types/slide/widget";
 
 const store = useStore();
 const widgetList = computed(() => store.widgetList);
@@ -29,9 +30,15 @@ const createElement = useCreateElement();
 const onChange = (data: IDragChange) => {
     if (data.added) {
         const added = data.added;
-        store.widgetList[added.newIndex] = createElement(added.element);
-        console.log("dragAdd", data);
+        if (added.element.id) {
+            // 非新增
+            store.widgetList[added.newIndex] = added.element;
+        } else {
+            store.widgetList[added.newIndex] = createElement(added.element);
+        }
     }
+
+    console.log(data.added);
 };
 </script>
 

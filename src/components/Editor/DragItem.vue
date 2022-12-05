@@ -1,7 +1,16 @@
 <template>
-    <Widget class="drag-item move drag-item-container" :data-type="data.type" :widget="data" v-if="isRow" />
+    <Widget
+        class="drag-item move drag-item-container"
+        :data-type="data.type"
+        :widget="data"
+        v-if="isRow"
+    />
 
-    <div v-else-if="isCol" class="drag-item move drag-item-container" :data-type="data.type">
+    <div
+        v-else-if="isCol"
+        class="drag-item move drag-item-container"
+        :data-type="data.type"
+    >
         <draggable
             class="drag-container"
             :list="widgetList"
@@ -16,7 +25,12 @@
         </draggable>
     </div>
 
-    <Widget class="drag-item move drag-item-container" v-else-if="isForm" :widget="data" :data-type="data.type">
+    <Widget
+        class="drag-item move drag-item-container"
+        v-else-if="isForm"
+        :widget="data"
+        :data-type="data.type"
+    >
         <draggable
             class="drag-container"
             group="widget"
@@ -31,7 +45,11 @@
         </draggable>
     </Widget>
 
-    <div class="drag-item drag-child-element move" style="display: inline-block" v-else-if="isText">
+    <div
+        class="drag-item drag-child-element move"
+        style="display: inline-block"
+        v-else-if="isText"
+    >
         <Widget :widget="data" />
     </div>
 
@@ -42,7 +60,9 @@
 
 <script setup lang="ts">
 import { WidgetTypes } from "@/config/widget";
+import { IDragChange } from "@/types";
 import { IWidget } from "@/types/slide/widget";
+import useCreateElement from "@/hooks/useCreateElement";
 import { PropType, toRefs, defineProps, computed } from "vue";
 import draggable from "vuedraggable";
 import DragItem from "./DragItem.vue";
@@ -62,7 +82,10 @@ const isRow = computed(() => {
 });
 
 const isForm = computed(() => {
-    return WidgetTypes.FORM === data.value.type || WidgetTypes.FORM_ITEM === data.value.type;
+    return (
+        WidgetTypes.FORM === data.value.type ||
+        WidgetTypes.FORM_ITEM === data.value.type
+    );
 });
 
 const isCol = computed(() => {
@@ -77,8 +100,23 @@ const widgetList = computed(() => {
     return "widgetList" in data.value ? data.value.widgetList : [];
 });
 
-const onChange = (data: any) => {
-    console.log(data);
+const createElement = useCreateElement();
+
+const onChange = (dragData: IDragChange) => {
+    if (dragData.added) {
+        const added = dragData.added;
+
+        if ("widgetList" in data.value && data.value.widgetList) {
+            if (added.element.id) {
+                // 非新增
+                data.value.widgetList[added.newIndex] = added.element;
+            } else {
+                data.value.widgetList[added.newIndex] = createElement(
+                    added.element
+                );
+            }
+        }
+    }
 };
 </script>
 
@@ -128,7 +166,7 @@ const onChange = (data: any) => {
 }
 
 .drag-container {
-    min-height: 40px;
+    min-height: 60px;
     width: 100%;
 }
 </style>

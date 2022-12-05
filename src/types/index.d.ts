@@ -3,7 +3,7 @@ import { IWidget } from "./slide/widget";
 
 export interface IDragChange {
     added?: {
-        element: IWidgetList;
+        element: IWidgetList & IWidget;
         newIndex: number;
     }
 }
