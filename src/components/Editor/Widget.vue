@@ -13,7 +13,6 @@ import ElColEditor from "./ElColEditor.vue";
 import SpanRender from "../Preview/SpanRender.vue";
 import ElFormEditor from "./ElFormEditor.vue";
 import ElFormItemEditor from "./ElFormItemEditor.vue";
-import ElFormItemRender from "../Preview/ElFormItemRender.vue";
 import ElInputRender from "../Preview/ElInputRender.vue";
 import ElSelectRender from "../Preview/ElSelectRender.vue";
 import ElSelectItemRender from "../Preview/ElSelectItemRender.vue";

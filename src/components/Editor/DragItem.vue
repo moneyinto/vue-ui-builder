@@ -3,6 +3,7 @@
         class="drag-item move drag-item-container"
         :data-type="data.type"
         :widget="data"
+        @onDelete="dragDelete()"
         v-if="isRow"
     />
 
@@ -11,6 +12,13 @@
         class="drag-item move drag-item-container"
         :data-type="data.type"
     >
+        <el-button
+            type="danger"
+            icon="Delete"
+            class="drag-delete"
+            circle
+            @click="dragDelete()"
+        ></el-button>
         <draggable
             class="drag-container"
             :list="widgetList"
@@ -20,7 +28,7 @@
             @change="onChange"
         >
             <template #item="{ element }">
-                <DragItem :data="element" />
+                <DragItem :data="element" @onDelete="onDelete" />
             </template>
         </draggable>
     </div>
@@ -30,7 +38,16 @@
         v-else-if="isForm"
         :widget="data"
         :data-type="data.type"
+        @onDelete="dragDelete"
     >
+        <el-button
+            type="danger"
+            icon="Delete"
+            class="drag-delete"
+            circle
+            v-if="(data.type === WidgetTypes.FORM)"
+            @click="dragDelete()"
+        ></el-button>
         <draggable
             class="drag-container"
             group="widget"
@@ -40,7 +57,7 @@
             @change="onChange"
         >
             <template #item="{ element }">
-                <DragItem :data="element" />
+                <DragItem :data="element" @onDelete="onDelete" />
             </template>
         </draggable>
     </Widget>
@@ -50,10 +67,24 @@
         style="display: inline-block"
         v-else-if="isText"
     >
+        <el-button
+            type="danger"
+            icon="Delete"
+            class="drag-delete"
+            circle
+            @click="dragDelete()"
+        ></el-button>
         <Widget :widget="data" />
     </div>
 
     <div class="drag-item move drag-child-element" v-else>
+        <el-button
+            type="danger"
+            icon="Delete"
+            class="drag-delete"
+            circle
+            @click="dragDelete()"
+        ></el-button>
         <Widget :widget="data" />
     </div>
 </template>
@@ -67,6 +98,8 @@ import { PropType, toRefs, defineProps, computed } from "vue";
 import draggable from "vuedraggable";
 import DragItem from "./DragItem.vue";
 import Widget from "./Widget.vue";
+
+const emit = defineEmits(["onDelete"]);
 
 const props = defineProps({
     data: {
@@ -118,6 +151,17 @@ const onChange = (dragData: IDragChange) => {
         }
     }
 };
+
+const dragDelete = () => {
+    emit("onDelete", data.value.id);
+};
+
+const onDelete = (id: string) => {
+    if ("widgetList" in data.value && data.value.widgetList) {
+        const i = data.value.widgetList.findIndex(widget => widget.id === id);
+        data.value.widgetList.splice(i, 1);
+    }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -132,6 +176,10 @@ const onChange = (dragData: IDragChange) => {
 
 .drag-child-element:hover {
     background-color: var(--el-color-primary-light-9);
+    position: relative;
+    > .drag-delete {
+        display: block;
+    }
 }
 
 .move {
@@ -146,6 +194,9 @@ const onChange = (dragData: IDragChange) => {
         border-color: var(--el-color-primary);
         &:before {
             color: var(--el-color-primary);
+        }
+        > .drag-delete {
+            display: block;
         }
     }
     &:before {
@@ -169,5 +220,17 @@ const onChange = (dragData: IDragChange) => {
 .drag-container {
     min-height: 60px;
     width: 100%;
+}
+
+.drag-delete {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font-size: 12px;
+    padding: 4px !important;
+    z-index: 10;
+    height: 22px;
+    width: 22px;
+    display: none;
 }
 </style>

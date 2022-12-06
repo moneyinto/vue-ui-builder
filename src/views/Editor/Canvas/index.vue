@@ -8,7 +8,7 @@
         @change="onChange"
     >
         <template #item="{ element }">
-            <DragItem :data="element" />
+            <DragItem :data="element" @onDelete="onDelete" />
         </template>
     </draggable>
 </template>
@@ -36,8 +36,11 @@ const onChange = (data: IDragChange) => {
             store.widgetList[added.newIndex] = createElement(added.element);
         }
     }
+};
 
-    console.log(data.added);
+const onDelete = (id: string) => {
+    const i = store.widgetList.findIndex(widget => widget.id === id);
+    store.widgetList.splice(i, 1);
 };
 </script>
 
