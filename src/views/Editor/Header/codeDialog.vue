@@ -2,7 +2,7 @@
     <el-dialog
         class="lyx-code-view el-dialog-fixed"
         title="代码"
-        v-model="modelValue"
+        :modelValue="modelValue"
         :before-close="cancel"
     >
         <el-form>
