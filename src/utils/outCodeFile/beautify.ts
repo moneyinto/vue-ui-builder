@@ -1,6 +1,6 @@
-import beautify from "js-beautify";
+import beautify, { HTMLBeautifyOptions } from "js-beautify";
 
-const beautifyOpts = {
+const beautifyOpts: HTMLBeautifyOptions = {
     indent_size: 4
 };
 

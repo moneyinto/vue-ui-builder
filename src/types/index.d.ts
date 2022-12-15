@@ -10,4 +10,5 @@ export interface IDragChange {
 
 export interface IStoreState {
     widgetList: IWidget[];
+    handleWidget: null | IWidget
 }

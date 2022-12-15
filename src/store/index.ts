@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 
 export const useStore = defineStore("store", {
     state: (): IStoreState => ({
-        widgetList: previewSlide.widgetList
+        widgetList: previewSlide.widgetList,
+        handleWidget: null
     })
 });

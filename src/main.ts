@@ -2,6 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import LyxView from "lyx_view";
 import "lyx_view/dist/LyxView.css";
+import "@/assets/styles/index.scss";
 import { createPinia } from "pinia";
 import { GlobalCmComponent } from "codemirror-editor-vue3";
 

@@ -40,7 +40,7 @@ const dealWidget = (widget: IWidget, imports: ICustomObject<string[]>, formModel
     resultScopedCss = getWidgetCss(widget.classNames);
     resultJs = getWidgetJs(widget, imports, _formModel);
 
-    return { html: resultHtml, js: childJs + resultJs, scopedCss: resultScopedCss };
+    return { html: resultHtml, js: childJs + resultJs, scopedCss: childScopedCss + resultScopedCss };
 };
 
 const dealWidgetList = (widgetList: IWidget[], imports: ICustomObject<string[]>, formModelName?: string, formItemModelName?: string, formModel?: { [key: string]: string }) => {

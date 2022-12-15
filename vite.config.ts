@@ -11,27 +11,40 @@ export default defineConfig(({ mode, command }) => {
     const plugins: (Plugin | Plugin[])[] = [
         vue(),
         eslintPlugin({
-            include: ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-        }),
+            include: [
+                "src/**/*.ts",
+                "src/**/**/*.ts",
+                "src/**/**/**/*.ts",
+                "src/**/**/**/**/*.ts",
+                "src/*.d.ts",
+                "src/**/*.d.ts",
+                "src/**/*.tsx",
+                "src/*.vue",
+                "src/**/*.vue",
+                "src/**/**/*.vue",
+                "src/**/**/**/*.vue",
+                "src/**/**/**/**/*.vue"
+            ]
+        })
     ];
 
     const env = loadEnv(mode, process.cwd());
 
     return {
         base: "/",
-        define: {
-            global: {},
-            process: process
-        },
+        // define: {
+        //     global: {},
+        //     process: process
+        // },
         resolve: {
             alias: {
-                "@": resolve(__dirname, "./src"),
-            },
+                "@": resolve(__dirname, "./src")
+            }
         },
         plugins,
         server: {
             host: true,
-            port,
+            port
         }
     };
 });

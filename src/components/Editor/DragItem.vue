@@ -1,23 +1,27 @@
 <template>
     <Widget
         class="drag-item move drag-item-container"
+        :class="isActive && 'active'"
         :data-type="data.type"
         :widget="data"
         @onDelete="dragDelete()"
+        @click.stop="onSelectWidget()"
         v-if="isRow"
     />
 
     <div
         v-else-if="isCol"
         class="drag-item move drag-item-container"
+        :class="isActive && 'active'"
         :data-type="data.type"
+        @click.stop="onSelectWidget()"
     >
         <el-button
             type="danger"
             icon="Delete"
             class="drag-delete"
             circle
-            @click="dragDelete()"
+            @click.stop="dragDelete()"
         ></el-button>
         <draggable
             class="drag-container"
@@ -35,10 +39,12 @@
 
     <Widget
         class="drag-item move drag-item-container"
+        :class="isActive && 'active'"
         v-else-if="isForm"
         :widget="data"
         :data-type="data.type"
         @onDelete="dragDelete"
+        @click.stop="onSelectWidget()"
     >
         <el-button
             type="danger"
@@ -46,7 +52,7 @@
             class="drag-delete"
             circle
             v-if="(data.type === WidgetTypes.FORM)"
-            @click="dragDelete()"
+            @click.stop="dragDelete()"
         ></el-button>
         <draggable
             class="drag-container"
@@ -64,20 +70,27 @@
 
     <div
         class="drag-item drag-child-element move"
+        :class="isActive && 'active'"
         style="display: inline-block"
         v-else-if="isText"
+        @click.stop="onSelectWidget()"
     >
         <el-button
             type="danger"
             icon="Delete"
             class="drag-delete"
             circle
-            @click="dragDelete()"
+            @click.stop="dragDelete()"
         ></el-button>
         <Widget :widget="data" />
     </div>
 
-    <div class="drag-item move drag-child-element" v-else>
+    <div
+        class="drag-item move drag-child-element"
+        :class="isActive && 'active'"
+        v-else
+        @click="onSelectWidget()"
+    >
         <el-button
             type="danger"
             icon="Delete"
@@ -94,10 +107,11 @@ import { WidgetTypes } from "@/config/widget";
 import { IDragChange } from "@/types";
 import { IWidget } from "@/types/slide/widget";
 import useCreateElement from "@/hooks/useCreateElement";
-import { PropType, toRefs, defineProps, computed } from "vue";
+import { PropType, toRefs, computed } from "vue";
 import draggable from "vuedraggable";
 import DragItem from "./DragItem.vue";
 import Widget from "./Widget.vue";
+import { useStore } from "@/store";
 
 const emit = defineEmits(["onDelete"]);
 
@@ -162,6 +176,12 @@ const onDelete = (id: string) => {
         data.value.widgetList.splice(i, 1);
     }
 };
+
+const store = useStore();
+const isActive = computed(() => store.handleWidget?.id === data.value.id);
+const onSelectWidget = () => {
+    store.handleWidget = data.value;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -172,6 +192,9 @@ const onDelete = (id: string) => {
     margin-right: 0 !important;
     flex: 1;
     background-color: #fff;
+    &.active {
+        background-color: var(--el-color-primary-light-9);
+    }
 }
 
 .drag-child-element:hover {
