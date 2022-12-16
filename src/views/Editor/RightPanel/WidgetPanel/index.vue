@@ -1,6 +1,6 @@
 <template>
     <div class="element-panel">
-        <el-form label-width="90px">
+        <el-form label-width="100px">
             <el-form-item label="部件命名：">
                 <el-input
                     v-model="formState.name"
@@ -76,6 +76,11 @@
             </el-form-item>
         </el-form>
 
+        <component
+            v-if="handleWidget"
+            :is="currentPanelComponent"
+        ></component>
+
         <StyleEdit
             :styles="styles"
             v-model="showStyleEditor"
@@ -96,10 +101,15 @@
 import { useStore } from "@/store";
 import { IClassNames, IStyle } from "@/types/slide/base";
 import { IWidget } from "@/types/slide/widget";
-import { computed, reactive, ref, watch } from "vue";
+import { computed, ComputedRef, reactive, ref, watch } from "vue";
 import StyleEdit from "./StyleEdit.vue";
 import ClassEdit from "./ClassEdit.vue";
+import InputStylePanel from "./components/InputStylePanel.vue";
 import { ElMessage } from "element-plus";
+import { WidgetTypes } from "@/config/widget";
+import SelectStylePanel from "./components/SelectStylePanel.vue";
+import DatePickerStylePanel from "./components/DatePickerStylePanel.vue";
+import TimePickerStylePanel from "./components/TimePickerStylePanel.vue";
 
 const store = useStore();
 const handleWidget = computed<IWidget>(() => store.handleWidget!);
@@ -121,6 +131,25 @@ const formState = reactive<IFormState>({
     value: "",
     ref: "",
     classNames: []
+});
+
+const currentPanelComponent: ComputedRef | null = computed(() => {
+    if (!handleWidget.value) return null;
+
+    const panelMap = {
+        [WidgetTypes.ROW]: null,
+        [WidgetTypes.COL]: null,
+        [WidgetTypes.FORM]: null,
+        [WidgetTypes.FORM_ITEM]: null,
+        [WidgetTypes.INPUT]: InputStylePanel,
+        [WidgetTypes.TEXT]: null,
+        [WidgetTypes.SELECT]: SelectStylePanel,
+        [WidgetTypes.SELECT_ITEM]: null,
+        [WidgetTypes.SWITCH]: null,
+        [WidgetTypes.DAET_TIME_PICKER]: DatePickerStylePanel,
+        [WidgetTypes.TIME_PICKER]: TimePickerStylePanel
+    };
+    return panelMap[handleWidget.value.type] || null;
 });
 
 const initFormState = () => {

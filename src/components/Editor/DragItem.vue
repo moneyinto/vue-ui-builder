@@ -89,7 +89,7 @@
         class="drag-item move drag-child-element"
         :class="isActive && 'active'"
         v-else
-        @click="onSelectWidget()"
+        @click.stop="onSelectWidget()"
     >
         <el-button
             type="danger"

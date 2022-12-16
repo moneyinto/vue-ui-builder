@@ -8,7 +8,7 @@
 import { useStore } from "@/store";
 import { IWidget } from "@/types/slide/widget";
 import { computed } from "vue";
-import WidgetPanel from "./WidgetPanel.vue";
+import WidgetPanel from "./WidgetPanel/index.vue";
 
 const store = useStore();
 const handleWidget = computed<IWidget>(() => store.handleWidget!);
