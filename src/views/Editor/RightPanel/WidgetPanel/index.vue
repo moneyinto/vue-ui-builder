@@ -228,7 +228,6 @@ const deleteClassItem = (i: number) => {
 };
 
 const saveClassName = (resultClass: IClassName) => {
-    console.log(className);
     if (className.value) {
         // 编辑
         // 判断名字是否重复

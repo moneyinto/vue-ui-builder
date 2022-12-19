@@ -1,11 +1,11 @@
 import { ISlide } from "@/types/slide";
-import { beautifyCode } from "./beautify";
+import { beautifyHtmlCode } from "./beautify";
 import { saveAs } from "file-saver";
 import { generatorCode } from "./generator";
 
 export const getVue3Code = (slide: ISlide) => {
     const code = generatorCode(slide);
-    return beautifyCode(code);
+    return beautifyHtmlCode(code);
 };
 
 export const saveFile = (fileContent: string, fileName?: string) => {
