@@ -28,9 +28,10 @@ export const enum WidgetComponents {
 
 export interface IWidgetList {
     name: string;
+    value?: string;
     component: WidgetComponents;
     type: WidgetTypes.TEXT | WidgetTypes.ROW | WidgetTypes.COL | WidgetTypes.FORM | WidgetTypes.FORM_ITEM | WidgetTypes.INPUT | WidgetTypes.SELECT | WidgetTypes.SELECT_ITEM | WidgetTypes.DAET_TIME_PICKER | WidgetTypes.TIME_PICKER | WidgetTypes.SWITCH;
-    icon: string;
+    icon?: string;
 }
 
 interface IWidgetGroup {

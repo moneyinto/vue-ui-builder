@@ -31,7 +31,7 @@
                 </el-button>
             </el-form-item>
 
-            <el-form-item label="style:">
+            <el-form-item label="style：">
                 <el-button
                     block
                     @click="openStyleEditor()"
@@ -40,7 +40,7 @@
                 </el-button>
             </el-form-item>
 
-            <el-form-item label="class:">
+            <el-form-item label="class：">
                 <el-button
                     block
                     @click="addClass()"

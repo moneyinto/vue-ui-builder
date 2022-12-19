@@ -3,7 +3,7 @@ import { IDateTimePickerWidget, ITimePickerWidget } from "@/types/slide/dateTime
 import { IFormItemWidget, IFormWidget } from "@/types/slide/form";
 import { IColWidget, IRowWidget } from "@/types/slide/grid";
 import { IInputWidget } from "@/types/slide/input";
-import { ISelectWidget } from "@/types/slide/select";
+import { ISelectItemWidget, ISelectWidget } from "@/types/slide/select";
 import { ISwitchWidget } from "@/types/slide/switch";
 import { ITextWidget } from "@/types/slide/text";
 import { IWidget } from "@/types/slide/widget";
@@ -35,6 +35,9 @@ export default () => {
             break;
         case WidgetTypes.SELECT:
             widget = createSelectElement(id, name);
+            break;
+        case WidgetTypes.SELECT_ITEM:
+            widget = createSelectItemElement(id, name, element.value || "");
             break;
         case WidgetTypes.DAET_TIME_PICKER:
             widget = createDateTimePickerElement(id, name);
@@ -119,6 +122,16 @@ export default () => {
             component: WidgetComponents.SELECT,
             type: WidgetTypes.SELECT,
             widgetList: []
+        };
+    };
+
+    const createSelectItemElement = (id: string, name: string, value: string): ISelectItemWidget => {
+        return {
+            id,
+            name,
+            value,
+            component: WidgetComponents.SELECT_ITEM,
+            type: WidgetTypes.SELECT_ITEM
         };
     };
 
