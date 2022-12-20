@@ -7,7 +7,6 @@
         :z-index="1000"
     >
         <el-input v-model="name" style="margin-bottom: 20px;" placeholder="class命名"></el-input>
-        <el-button block @click="addStyle">新增style</el-button>
         <el-row
             class="style-in-class-input"
             :gutter="10"
@@ -37,6 +36,7 @@
                 ></el-button>
             </el-col>
         </el-row>
+        <el-button icon="CirclePlus" type="primary" link @click="addStyle">新增style</el-button>
         <template #footer>
             <span class="dialog-footer">
                 <el-button @click="cancel()">取消</el-button>
@@ -123,7 +123,7 @@ const save = () => {
 
 <style lang="scss" scoped>
 .style-in-class-input {
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .minus-btn {

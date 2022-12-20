@@ -27,7 +27,6 @@
     <el-dialog
         v-model="showItemEditor"
     >
-        <el-button block @click="addSelectItem">新增选项</el-button>
         <el-row
             class="select-item-input"
             :gutter="10"
@@ -57,6 +56,7 @@
                 ></el-button>
             </el-col>
         </el-row>
+        <el-button icon="CirclePlus" type="primary" link @click="addSelectItem">新增选项</el-button>
     </el-dialog>
 </template>
 
@@ -121,7 +121,7 @@ const updateDisabled = (disabled: boolean) => {
 
 <style lang="scss" scoped>
 .select-item-input {
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .minus-btn {
