@@ -56,6 +56,17 @@ import { FormItemRule } from "element-plus";
 const store = useStore();
 const handleWidget = computed(() => store.handleWidget as IFormItemWidget);
 
+const updateRules = () => {
+    if (formState.required) {
+        handleWidget.value.rules = formState.rules.concat({
+            required: formState.required,
+            message: formState.requiredMessage
+        });
+    } else {
+        handleWidget.value.rules = formState.rules;
+    }
+};
+
 interface IFormState extends IFormItemOptions {
     rules: FormItemRule[];
     requiredMessage: string;
@@ -97,17 +108,6 @@ const updateProp = (prop: string) => {
 const updateRequired = (required: boolean) => {
     handleWidget.value.options!.required = required;
     updateRules();
-};
-
-const updateRules = () => {
-    if (formState.required) {
-        handleWidget.value.rules = formState.rules.concat({
-            required: formState.required,
-            message: formState.requiredMessage
-        });
-    } else {
-        handleWidget.value.rules = formState.rules;
-    }
 };
 
 const addRule = () => {

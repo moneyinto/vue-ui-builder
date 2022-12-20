@@ -1,4 +1,5 @@
 import { IClassNames, IStyle } from "./base";
+import { IButtonOptions, IButtonWidget } from "./button";
 import {
     IDateTimeOptions,
     IDateTimePickerWidget,
@@ -55,7 +56,8 @@ export type IWidget =
     | ISelectItemWidget
     | IDateTimePickerWidget
     | ITimePickerWidget
-    | ISwitchWidget;
+    | ISwitchWidget
+    | IButtonWidget;
 
 export type IWidgetOptions =
     | IColOptions
@@ -65,4 +67,5 @@ export type IWidgetOptions =
     | IInputOptions
     | ISelectOptions
     | IDateTimeOptions
-    | ISwitchOptions;
+    | ISwitchOptions
+    | IButtonOptions;

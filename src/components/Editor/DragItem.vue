@@ -87,10 +87,11 @@
 
     <div
         class="drag-item move drag-child-element"
-        :class="isActive && 'active'"
+        :class="{ 'active': isActive, 'widget-inline-block': data.type === WidgetTypes.BUTTON && !data.block }"
         v-else
         @click.stop="onSelectWidget()"
     >
+        <Widget :widget="data" />
         <el-button
             type="danger"
             icon="Delete"
@@ -98,7 +99,6 @@
             circle
             @click="dragDelete()"
         ></el-button>
-        <Widget :widget="data" />
     </div>
 </template>
 
@@ -194,6 +194,9 @@ const onSelectWidget = () => {
     background-color: #fff;
     &.active {
         background-color: var(--el-color-primary-light-9);
+    }
+    &.widget-inline-block {
+        display: inline-flex;
     }
 }
 

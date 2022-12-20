@@ -1,6 +1,7 @@
 <template>
     <el-dialog
         class="lyx-pre-view"
+        style="--el-dialog-margin-top: 5vh"
         title="JSON"
         width="80%"
     >
@@ -26,7 +27,6 @@ const height = ref(window.innerHeight * 0.9 - 95);
 <style lang="scss">
 .lyx-pre-view {
     height: 90vh;
-    --el-dialog-margin-top: 5vh !important;
     .el-dialog__body {
         padding-top: 5px !important;
     }

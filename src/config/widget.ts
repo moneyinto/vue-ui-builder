@@ -9,7 +9,8 @@ export const enum WidgetTypes {
     SELECT_ITEM = "select-item",
     DAET_TIME_PICKER = "date-picker",
     TIME_PICKER = "time-picker",
-    SWITCH = "switch"
+    SWITCH = "switch",
+    BUTTON = "button"
 }
 
 export const enum WidgetComponents {
@@ -23,21 +24,42 @@ export const enum WidgetComponents {
     SELECT_ITEM = "el-option",
     DAET_TIME_PICKER = "el-date-picker",
     TIME_PICKER = "el-time-picker",
-    SWITCH = "el-switch"
+    SWITCH = "el-switch",
+    BUTTON = "el-button"
+}
+
+export const enum BUTTON_TYPES {
+    DEFAULT = "default",
+    PRIMARY = "primary",
+    SUCCESS = "success",
+    WARNING = "warning",
+    DANGER = "danger"
 }
 
 export interface IWidgetList {
     name: string;
     value?: string;
     component: WidgetComponents;
-    type: WidgetTypes.TEXT | WidgetTypes.ROW | WidgetTypes.COL | WidgetTypes.FORM | WidgetTypes.FORM_ITEM | WidgetTypes.INPUT | WidgetTypes.SELECT | WidgetTypes.SELECT_ITEM | WidgetTypes.DAET_TIME_PICKER | WidgetTypes.TIME_PICKER | WidgetTypes.SWITCH;
+    type:
+        | WidgetTypes.TEXT
+        | WidgetTypes.ROW
+        | WidgetTypes.COL
+        | WidgetTypes.FORM
+        | WidgetTypes.FORM_ITEM
+        | WidgetTypes.INPUT
+        | WidgetTypes.SELECT
+        | WidgetTypes.SELECT_ITEM
+        | WidgetTypes.DAET_TIME_PICKER
+        | WidgetTypes.TIME_PICKER
+        | WidgetTypes.SWITCH
+        | WidgetTypes.BUTTON;
     icon?: string;
 }
 
 interface IWidgetGroup {
     name: string;
     icon: string;
-    children: IWidgetList[]
+    children: IWidgetList[];
 }
 
 export const WidgetGroupList: IWidgetGroup[] = [
@@ -115,6 +137,18 @@ export const WidgetGroupList: IWidgetGroup[] = [
                 name: "开关",
                 component: WidgetComponents.SWITCH,
                 type: WidgetTypes.SWITCH,
+                icon: ""
+            }
+        ]
+    },
+    {
+        name: "其他",
+        icon: "",
+        children: [
+            {
+                name: "按钮",
+                component: WidgetComponents.BUTTON,
+                type: WidgetTypes.BUTTON,
                 icon: ""
             }
         ]

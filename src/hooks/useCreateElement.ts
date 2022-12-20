@@ -1,4 +1,5 @@
 import { IWidgetList, WidgetComponents, WidgetTypes } from "@/config/widget";
+import { IButtonWidget } from "@/types/slide/button";
 import { IDateTimePickerWidget, ITimePickerWidget } from "@/types/slide/dateTime";
 import { IFormItemWidget, IFormWidget } from "@/types/slide/form";
 import { IColWidget, IRowWidget } from "@/types/slide/grid";
@@ -47,6 +48,9 @@ export default () => {
             break;
         case WidgetTypes.SWITCH:
             widget = createSwitchElement(id, name);
+            break;
+        case WidgetTypes.BUTTON:
+            widget = createButtonElement(id, name);
             break;
         }
 
@@ -163,6 +167,17 @@ export default () => {
             name,
             component: WidgetComponents.SWITCH,
             type: WidgetTypes.SWITCH
+        };
+    };
+
+    const createButtonElement = (id: string, name: string): IButtonWidget => {
+        return {
+            id,
+            name,
+            text: "按钮",
+            block: false,
+            component: WidgetComponents.BUTTON,
+            type: WidgetTypes.BUTTON
         };
     };
 

@@ -116,6 +116,7 @@ import ColStylePanel from "./components/ColStylePanel.vue";
 import FormItemStylePanel from "./components/FormItemStylePanel.vue";
 import FormStylePanel from "./components/FormStylePanel.vue";
 import SwitchStylePanel from "./components/SwitchStylePanel.vue";
+import ButtonStylePanel from "./components/ButtonStylePanel.vue";
 
 const store = useStore();
 const handleWidget = computed<IWidget>(() => store.handleWidget!);
@@ -153,7 +154,8 @@ const currentPanelComponent: ComputedRef | null = computed(() => {
         [WidgetTypes.SELECT_ITEM]: null,
         [WidgetTypes.SWITCH]: SwitchStylePanel,
         [WidgetTypes.DAET_TIME_PICKER]: DatePickerStylePanel,
-        [WidgetTypes.TIME_PICKER]: TimePickerStylePanel
+        [WidgetTypes.TIME_PICKER]: TimePickerStylePanel,
+        [WidgetTypes.BUTTON]: ButtonStylePanel
     };
     return panelMap[handleWidget.value.type] || null;
 });
