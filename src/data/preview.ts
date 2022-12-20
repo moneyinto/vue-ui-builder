@@ -66,7 +66,11 @@ export const previewSlide: ISlide = {
             modelName: "modelForm",
             ref: "modelFormRef",
             classNames: {
-                elFormVertical: {}
+                elFormVertical1: {}
+            },
+            options: {
+                labelWidth: 100,
+                labelPosition: "top"
             },
             widgetList: [
                 {

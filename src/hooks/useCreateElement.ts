@@ -89,7 +89,11 @@ export default () => {
             name,
             component: WidgetComponents.FORM,
             type: WidgetTypes.FORM,
-            widgetList: []
+            widgetList: [],
+            options: {
+                labelWidth: 100,
+                labelPosition: "top"
+            }
         };
     };
 

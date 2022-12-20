@@ -113,6 +113,8 @@ import TimePickerStylePanel from "./components/TimePickerStylePanel.vue";
 import TextStylePanel from "./components/TextStylePanel.vue";
 import RowStylePanel from "./components/RowStylePanel.vue";
 import ColStylePanel from "./components/ColStylePanel.vue";
+import FormItemStylePanel from "./components/FormItemStylePanel.vue";
+import FormStylePanel from "./components/FormStylePanel.vue";
 
 const store = useStore();
 const handleWidget = computed<IWidget>(() => store.handleWidget!);
@@ -142,8 +144,8 @@ const currentPanelComponent: ComputedRef | null = computed(() => {
     const panelMap = {
         [WidgetTypes.ROW]: RowStylePanel,
         [WidgetTypes.COL]: ColStylePanel,
-        [WidgetTypes.FORM]: null,
-        [WidgetTypes.FORM_ITEM]: null,
+        [WidgetTypes.FORM]: FormStylePanel,
+        [WidgetTypes.FORM_ITEM]: FormItemStylePanel,
         [WidgetTypes.INPUT]: InputStylePanel,
         [WidgetTypes.TEXT]: TextStylePanel,
         [WidgetTypes.SELECT]: SelectStylePanel,

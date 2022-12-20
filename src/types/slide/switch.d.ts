@@ -2,7 +2,6 @@ import { WidgetComponents, WidgetTypes } from "@/config/widget";
 import { IBaseWidget } from "./widget";
 
 export interface ISwitchOptions {
-    placeholder?: string;
     [key: string]: unknown;
 }
 

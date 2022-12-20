@@ -7,6 +7,7 @@ export type ICustomObject<T> = {
 
 export interface IInputOptions {
     placeholder?: string;
+    disabled?: boolean;
     [key: string]: unknown;
 }
 

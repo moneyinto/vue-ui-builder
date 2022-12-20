@@ -1,6 +1,5 @@
 <template>
     <el-form
-        class="el-form-vertical"
         :model="modelForm"
         :style="style"
         v-bind="attributes"

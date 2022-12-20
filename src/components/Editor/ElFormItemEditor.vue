@@ -14,7 +14,7 @@
 </template>
 
 <script name="ElFormItemEditor" setup lang="ts">
-import { PropType, provide, toRefs } from "vue";
+import { PropType, provide, toRefs, computed } from "vue";
 import useStyle from "../hooks/useStyle";
 import useAttributes from "../hooks/useAttributes";
 import { IFormItemWidget } from "@/types/slide/form";
@@ -34,7 +34,7 @@ const style = useStyle(widget);
 
 const attributes = useAttributes(widget);
 
-const rules = widget.value.rules || [];
+const rules = computed(() => widget.value.rules || []);
 
 provide("modelKeyName", widget.value.options?.prop);
 

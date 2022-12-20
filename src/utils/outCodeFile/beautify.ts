@@ -6,7 +6,8 @@ const beautifyHtmlOpts: HTMLBeautifyOptions = {
     max_preserve_newlines: -1,
     preserve_newlines: false,
     indent_scripts: "separate",
-    wrap_attributes: "force-expand-multiline"
+    wrap_attributes: "force-expand-multiline",
+    wrap_attributes_indent_size: 4
 };
 
 export const beautifyHtmlCode = (code: string) => {
