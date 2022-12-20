@@ -87,7 +87,7 @@
 
     <div
         class="drag-item move drag-child-element"
-        :class="{ 'active': isActive, 'widget-inline-block': data.type === WidgetTypes.BUTTON && !data.block }"
+        :class="{ 'active': isActive, 'widget-inline-block': data.type === WidgetTypes.BUTTON && !data.options?.block }"
         v-else
         @click.stop="onSelectWidget()"
     >

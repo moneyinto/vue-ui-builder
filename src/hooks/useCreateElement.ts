@@ -175,7 +175,6 @@ export default () => {
             id,
             name,
             text: "按钮",
-            block: false,
             component: WidgetComponents.BUTTON,
             type: WidgetTypes.BUTTON
         };

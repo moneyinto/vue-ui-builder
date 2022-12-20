@@ -80,7 +80,6 @@ const handleWidget = computed(() => store.handleWidget as IButtonWidget);
 
 interface IFormState extends IButtonOptions {
     text: string;
-    block: boolean;
 }
 
 const formState = reactive<IFormState>({
@@ -107,8 +106,8 @@ const buttonTypes = ref([
 
 const initFormState = () => {
     formState.text = handleWidget.value.text;
-    formState.block = handleWidget.value.block;
     formState.type = handleWidget.value.options?.type || BUTTON_TYPES.DEFAULT;
+    formState.block = !!handleWidget.value.options?.block;
     formState.disabled = !!handleWidget.value.options?.disabled;
     formState.plain = !!handleWidget.value.options?.plain;
     formState.link = !!handleWidget.value.options?.link;
@@ -127,7 +126,8 @@ const updateContent = (text: string) => {
 };
 
 const updateBlock = (block: boolean) => {
-    handleWidget.value.block = block;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    handleWidget.value.options.block = block;
 };
 
 const updateDisabled = (disabled: boolean) => {

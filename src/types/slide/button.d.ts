@@ -3,6 +3,7 @@ import { IBaseWidget } from "./widget";
 
 export interface IButtonOptions {
     size?: "small" | "large" | "default",
+    block?: boolean;
     type?: BUTTON_TYPES;
     plain?: boolean;
     link?: boolean;
@@ -19,6 +20,5 @@ export interface IButtonWidget extends IBaseWidget {
     type: WidgetTypes.BUTTON;
     component: WidgetComponents.BUTTON;
     text: string;
-    block: boolean;
     options?: IButtonOptions;
 }
