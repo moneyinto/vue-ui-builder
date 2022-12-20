@@ -4,7 +4,8 @@
             <el-input
                 v-model="formState.text"
                 @input="updateContent"
-            ></el-input>
+            >
+            </el-input>
         </el-form-item>
 
         <el-form-item label="按钮类型：">
@@ -27,6 +28,17 @@
                 <el-radio-button label="default">D</el-radio-button>
                 <el-radio-button label="large">L</el-radio-button>
             </el-radio-group>
+        </el-form-item>
+
+        <el-form-item label="按钮图标：">
+            <el-input
+                v-model="formState.icon"
+                readonly
+            >
+                <template #append>
+                    <el-button style="width: 80px;" link @click="openSelectIcon">选择图标</el-button>
+                </template>
+            </el-input>
         </el-form-item>
 
         <el-form-item label="块级元素：">
@@ -64,6 +76,8 @@
             />
         </el-form-item>
     </el-form>
+
+    <IconSelect v-model="showIconSelect" @select="selectIcon" />
 </template>
 
 <script lang="ts" setup>
@@ -74,6 +88,7 @@ import {
     IButtonWidget
 } from "@/types/slide/button";
 import { BUTTON_TYPES } from "@/config/widget";
+import IconSelect from "@/components/IconSelect.vue";
 
 const store = useStore();
 const handleWidget = computed(() => store.handleWidget as IButtonWidget);
@@ -86,6 +101,7 @@ const formState = reactive<IFormState>({
     type: BUTTON_TYPES.DEFAULT,
     text: "",
     size: "default",
+    icon: "",
     block: false,
     disabled: false,
     plain: false,
@@ -107,6 +123,7 @@ const buttonTypes = ref([
 const initFormState = () => {
     formState.text = handleWidget.value.text;
     formState.type = handleWidget.value.options?.type || BUTTON_TYPES.DEFAULT;
+    formState.icon = handleWidget.value.options?.icon;
     formState.block = !!handleWidget.value.options?.block;
     formState.disabled = !!handleWidget.value.options?.disabled;
     formState.plain = !!handleWidget.value.options?.plain;
@@ -173,5 +190,17 @@ const updateLoading = (loading: boolean) => {
 const updateAutoInsertSpace = (autoInsertSpace: boolean) => {
     if (!handleWidget.value.options) handleWidget.value.options = {};
     handleWidget.value.options.autoInsertSpace = autoInsertSpace;
+};
+
+const showIconSelect = ref(false);
+const openSelectIcon = () => {
+    showIconSelect.value = true;
+};
+
+const selectIcon = (icon: string) => {
+    showIconSelect.value = false;
+    formState.icon = icon;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    handleWidget.value.options.icon = icon;
 };
 </script>

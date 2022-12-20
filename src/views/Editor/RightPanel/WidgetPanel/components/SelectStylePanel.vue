@@ -25,6 +25,7 @@
     </el-form>
 
     <el-dialog
+        title="选项配置"
         v-model="showItemEditor"
     >
         <el-row
