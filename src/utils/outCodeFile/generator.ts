@@ -2,7 +2,6 @@ import { WidgetTypes } from "@/config/widget";
 import { ISlide } from "@/types/slide";
 import { ICustomObject } from "@/types/slide/input";
 import { IWidget } from "@/types/slide/widget";
-import { beautifyHtmlCode } from "./beautify";
 import { getWidgetCss } from "./css";
 import { getWidgetHtml } from "./html";
 import { getWidgetJs } from "./js";

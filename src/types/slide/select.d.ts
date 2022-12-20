@@ -3,6 +3,7 @@ import { IBaseWidget } from "./widget";
 
 export interface ISelectOptions {
     placeholder?: string;
+    disabled?: boolean;
     [key: string]: unknown;
 }
 

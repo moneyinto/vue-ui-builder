@@ -15,6 +15,13 @@
                 编辑选项
             </el-button>
         </el-form-item>
+
+        <el-form-item label="是否禁用：">
+            <el-switch
+                v-model="formState.disabled"
+                @change="updateDisabled"
+            />
+        </el-form-item>
     </el-form>
 
     <el-dialog
@@ -56,21 +63,21 @@
 <script lang="ts" setup>
 import { computed, reactive, ref, watch } from "vue";
 import { useStore } from "@/store";
-import { ISelectItemWidget, ISelectWidget } from "@/types/slide/select";
+import { ISelectItemWidget, ISelectOptions, ISelectWidget } from "@/types/slide/select";
 import useCreateElement from "@/hooks/useCreateElement";
 import { WidgetComponents, WidgetTypes } from "@/config/widget";
 
 const store = useStore();
 const handleWidget = computed(() => store.handleWidget as ISelectWidget);
 
-interface ISelectItem {
-    placeholder: string;
+interface ISelectItem extends ISelectOptions {
     selectItemList: ISelectItemWidget[];
 }
 
 const formState = reactive<ISelectItem>({
     placeholder: "",
-    selectItemList: []
+    selectItemList: [],
+    disabled: false
 });
 
 const initFormState = () => {
@@ -84,6 +91,7 @@ watch(handleWidget, initFormState);
 
 const updatePlaceholder = (placeholder: string) => {
     handleWidget.value.options!.placeholder = placeholder;
+    formState.disabled = !!handleWidget.value.options?.disabled;
 };
 
 const showItemEditor = ref(false);
@@ -103,6 +111,11 @@ const openItemEditor = () => {
 };
 const deleteSelectItem = (i: number) => {
     formState.selectItemList.splice(i, 1);
+};
+
+const updateDisabled = (disabled: boolean) => {
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    handleWidget.value.options.disabled = disabled;
 };
 </script>
 
