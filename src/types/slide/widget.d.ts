@@ -1,4 +1,4 @@
-import { IClassNames, IStyle } from "./base";
+import { IClassNames, IEvents, IStyle } from "./base";
 import { IButtonOptions, IButtonWidget } from "./button";
 import {
     IDateTimeOptions,
@@ -31,6 +31,8 @@ import { ITextWidget } from "./text";
  * classNames: 部件自定义Class及对应的样式
  *
  * style: 部件自定义style样式
+ * 
+ * events: 事件
  */
 export interface IBaseWidget {
     id: string;
@@ -40,6 +42,7 @@ export interface IBaseWidget {
     styleInClass?: IStyle;
     classNames?: IClassNames;
     style?: IStyle;
+    events?: IEvents;
 }
 
 /**
