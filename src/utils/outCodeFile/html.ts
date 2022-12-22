@@ -45,6 +45,20 @@ export const getFormButtonsHtml = (widget: IFormWidget) => {
             </el-form-item>`;
 };
 
+const getEvents = (widget: IWidget) => {
+    let events = "";
+    if (widget.events?.click) {
+        events += ` @click="${widget.events.click.name}(${(widget.events.click.input || []).join(", ")})"`;
+    }
+    if (widget.events?.change) {
+        events += ` @change="${widget.events.change.name}(${(widget.events.change.input || []).join(", ")})"`;
+    }
+    if (widget.events?.input) {
+        events += ` @input="${widget.events.input.name}(${(widget.events.input.input || []).join(", ")})"`;
+    }
+    return events;
+};
+
 export const getWidgetHtml = (
     widget: IWidget,
     html: string,
@@ -69,6 +83,7 @@ export const getWidgetHtml = (
         formButtons = getFormButtonsHtml(widget);
         break;
     }
-    const resultHtml = `<${widget.component}${ref}${specialConfig}${className}${style}${attributes}>${"text" in widget ? widget.text : ""}${html}${formButtons}</${widget.component}>`;
+    const events = getEvents(widget);
+    const resultHtml = `<${widget.component}${ref}${specialConfig}${className}${style}${attributes}${events}>${"text" in widget ? widget.text : ""}${html}${formButtons}</${widget.component}>`;
     return resultHtml;
 };

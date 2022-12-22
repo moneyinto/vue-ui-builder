@@ -1,5 +1,5 @@
 <template>
-    <el-button :style="style" v-bind="attributes">
+    <el-button :style="style" v-bind="attributes" @click="btnClick()">
         {{ widget.text }}
     </el-button>
 </template>
@@ -22,4 +22,10 @@ const { widget } = toRefs(props);
 const attributes = useAttributes(widget);
 
 const style = useStyle(widget);
+
+const btnClick = () => {
+    if (widget.value.events?.click) {
+        eval(widget.value.events.click.content);
+    }
+};
 </script>

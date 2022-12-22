@@ -16,7 +16,7 @@ const handleWidget = computed<IWidget>(() => store.handleWidget!);
 
 <style lang="scss" scoped>
 .editor-right-panel {
-    width: 300px;
+    width: 360px;
     border-left: 1px solid #eee;
     padding: 15px;
 }

@@ -1,4 +1,5 @@
 import { WidgetTypes } from "@/config/widget";
+import { IFunc } from "@/types/slide/base";
 import { IFormItemWidget, IFormWidget } from "@/types/slide/form";
 import { ICustomObject } from "@/types/slide/input";
 import { IWidget } from "@/types/slide/widget";
@@ -44,6 +45,10 @@ const getFormItemWidgetJs = (widget: IFormItemWidget) => {
     return formString;
 };
 
+const getEventJS = (event: IFunc) => {
+    return `const ${event.name} = (${(event.accept || []).join(", ")}) => { ${event.content} };`;
+};
+
 export const getWidgetJs = (widget: IWidget, imports: ICustomObject<string[]>, formModel?: ICustomObject<string>) => {
     let formString = "";
     if (widget.type === WidgetTypes.FORM) {
@@ -57,5 +62,17 @@ export const getWidgetJs = (widget: IWidget, imports: ICustomObject<string[]>, f
         widgetRef = `const ${widget.ref} = ref();`;
         addImports("vue", "ref", imports);
     }
-    return `${widgetRef}${formString}`;
+
+    let events = "";
+    if (widget.events?.click) {
+        events += getEventJS(widget.events?.click);
+    }
+    if (widget.events?.change) {
+        events += getEventJS(widget.events?.change);
+    }
+    if (widget.events?.input) {
+        events += getEventJS(widget.events?.input);
+    }
+
+    return `${widgetRef}${formString}${events}`;
 };
