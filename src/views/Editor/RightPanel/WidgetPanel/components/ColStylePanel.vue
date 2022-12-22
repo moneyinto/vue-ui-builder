@@ -111,38 +111,56 @@ initFormState();
 watch(handleWidget, initFormState);
 
 const updateSpan = (span: number) => {
-    handleWidget.value.options!.span = span;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.span = span;
+    handleWidget.value.options.span = span;
 };
 
 const updateOffset = (offset: number) => {
-    handleWidget.value.options!.offset = offset;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.offset = offset;
+    handleWidget.value.options.offset = offset;
 };
 
 const updatePush = (push: number) => {
-    handleWidget.value.options!.push = push;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.push = push;
+    handleWidget.value.options.push = push;
 };
 
 const updatePull = (pull: number) => {
-    handleWidget.value.options!.pull = pull;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.pull = pull;
+    handleWidget.value.options.pull = pull;
 };
 
 const updateXs = (xs: number) => {
-    handleWidget.value.options!.xs = xs;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.xs = xs;
+    handleWidget.value.options.xs = xs;
 };
 
 const updateSm = (sm: number) => {
-    handleWidget.value.options!.sm = sm;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.sm = sm;
+    handleWidget.value.options.sm = sm;
 };
 
 const updateMd = (md: number) => {
-    handleWidget.value.options!.md = md;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.md = md;
+    handleWidget.value.options.md = md;
 };
 
 const updateLg = (lg: number) => {
-    handleWidget.value.options!.lg = lg;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.lg = lg;
+    handleWidget.value.options.lg = lg;
 };
 
 const updateXl = (xl: number) => {
-    handleWidget.value.options!.xl = xl;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.span) handleWidget.value.options.xl = xl;
+    handleWidget.value.options.xl = xl;
 };
 </script>

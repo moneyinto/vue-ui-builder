@@ -31,6 +31,8 @@ initFormState();
 watch(handleWidget, initFormState);
 
 const updateGutter = (gutter: number) => {
-    handleWidget.value.options!.gutter = gutter;
+    if (!handleWidget.value.options) handleWidget.value.options = {};
+    if (!handleWidget.value.options.gutter) handleWidget.value.options.gutter = gutter;
+    handleWidget.value.options.gutter = gutter;
 };
 </script>

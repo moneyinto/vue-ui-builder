@@ -192,6 +192,7 @@ const onSelectWidget = () => {
     margin-right: 0 !important;
     flex: 1;
     background-color: #fff;
+    margin-bottom: 10px;
     &.active {
         background-color: var(--el-color-primary-light-9);
     }
@@ -214,7 +215,7 @@ const onSelectWidget = () => {
 
 .drag-item-container {
     border: 1px dashed #ccc;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
     position: relative;
     &:hover {
         border-color: var(--el-color-primary);

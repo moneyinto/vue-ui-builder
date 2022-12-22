@@ -83,7 +83,10 @@ export default () => {
             name,
             component: WidgetComponents.COL,
             type: WidgetTypes.COL,
-            widgetList: []
+            widgetList: [],
+            options: {
+                span: 24
+            }
         };
     };
 
