@@ -13,6 +13,7 @@ import {
 } from "./form";
 import { IColOptions, IColWidget, IRowOptions, IRowWidget } from "./grid";
 import { IInputOptions, IInputWidget } from "./input";
+import { IRadioGroupWidget, IRadioOptions, IRadioWidget } from "./radio";
 import { ISelectItemWidget, ISelectOptions, ISelectWidget } from "./select";
 import { ISwitchOptions, ISwitchWidget } from "./switch";
 import { ITextWidget } from "./text";
@@ -60,7 +61,9 @@ export type IWidget =
     | IDateTimePickerWidget
     | ITimePickerWidget
     | ISwitchWidget
-    | IButtonWidget;
+    | IButtonWidget
+    | IRadioGroupWidget
+    | IRadioWidget;
 
 export type IWidgetOptions =
     | IColOptions
@@ -71,4 +74,5 @@ export type IWidgetOptions =
     | ISelectOptions
     | IDateTimeOptions
     | ISwitchOptions
-    | IButtonOptions;
+    | IButtonOptions
+    | IRadioOptions;

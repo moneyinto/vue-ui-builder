@@ -10,7 +10,9 @@ export const enum WidgetTypes {
     DAET_TIME_PICKER = "date-picker",
     TIME_PICKER = "time-picker",
     SWITCH = "switch",
-    BUTTON = "button"
+    BUTTON = "button",
+    RADIO = "radio",
+    RADIO_GROUP = "radio-group"
 }
 
 export const enum WidgetComponents {
@@ -25,7 +27,9 @@ export const enum WidgetComponents {
     DAET_TIME_PICKER = "el-date-picker",
     TIME_PICKER = "el-time-picker",
     SWITCH = "el-switch",
-    BUTTON = "el-button"
+    BUTTON = "el-button",
+    RADIO = "el-radio",
+    RADIO_GROUP = "el-radio-group"
 }
 
 export const enum BUTTON_TYPES {
@@ -52,7 +56,9 @@ export interface IWidgetList {
         | WidgetTypes.DAET_TIME_PICKER
         | WidgetTypes.TIME_PICKER
         | WidgetTypes.SWITCH
-        | WidgetTypes.BUTTON;
+        | WidgetTypes.BUTTON
+        | WidgetTypes.RADIO
+        | WidgetTypes.RADIO_GROUP;
     icon?: string;
 }
 
@@ -137,6 +143,12 @@ export const WidgetGroupList: IWidgetGroup[] = [
                 name: "开关",
                 component: WidgetComponents.SWITCH,
                 type: WidgetTypes.SWITCH,
+                icon: ""
+            },
+            {
+                name: "单选框",
+                component: WidgetComponents.RADIO_GROUP,
+                type: WidgetTypes.RADIO_GROUP,
                 icon: ""
             }
         ]

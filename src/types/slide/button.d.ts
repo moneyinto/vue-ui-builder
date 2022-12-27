@@ -2,7 +2,7 @@ import { BUTTON_TYPES, WidgetComponents, WidgetTypes } from "@/config/widget";
 import { IBaseWidget } from "./widget";
 
 export interface IButtonOptions {
-    size?: "small" | "large" | "default",
+    size?: "small" | "large" | "default";
     block?: boolean;
     type?: BUTTON_TYPES;
     plain?: boolean;

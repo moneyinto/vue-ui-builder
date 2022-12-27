@@ -18,6 +18,8 @@ import ElDateTimePickerRender from "./ElDateTimePickerRender.vue";
 import ElTimePickerRender from "./ElTimePickerRender.vue";
 import ElSwitchRender from "./ElSwitchRender.vue";
 import ElButtonRender from "./ElButtonRender.vue";
+import ElRadioGroupRender from "./ElRadioGroupRender.vue";
+import ElRadioRender from "./ElRadioRender.vue";
 
 const props = defineProps({
     widget: {
@@ -41,7 +43,9 @@ const renderComponent = computed(() => {
         [WidgetComponents.DAET_TIME_PICKER]: ElDateTimePickerRender,
         [WidgetComponents.TIME_PICKER]: ElTimePickerRender,
         [WidgetComponents.SWITCH]: ElSwitchRender,
-        [WidgetComponents.BUTTON]: ElButtonRender
+        [WidgetComponents.BUTTON]: ElButtonRender,
+        [WidgetComponents.RADIO_GROUP]: ElRadioGroupRender,
+        [WidgetComponents.RADIO]: ElRadioRender
     }[widget.value.component];
 });
 </script>

@@ -325,6 +325,42 @@ export const previewSlide: ISlide = {
                             component: WidgetComponents.SWITCH
                         }
                     ]
+                },
+                {
+                    id: createRandomCode(),
+                    name: "性别",
+                    value: "sex",
+                    type: WidgetTypes.FORM_ITEM,
+                    component: WidgetComponents.FORM_ITEM,
+                    options: {
+                        label: "性别",
+                        prop: "sex"
+                    },
+                    widgetList: [
+                        {
+                            id: createRandomCode(),
+                            name: "",
+                            value: "",
+                            type: WidgetTypes.RADIO_GROUP,
+                            component: WidgetComponents.RADIO_GROUP,
+                            widgetList: [
+                                {
+                                    id: createRandomCode(),
+                                    name: "男",
+                                    value: "body",
+                                    type: WidgetTypes.RADIO,
+                                    component: WidgetComponents.RADIO
+                                },
+                                {
+                                    id: createRandomCode(),
+                                    name: "女",
+                                    value: "girl",
+                                    type: WidgetTypes.RADIO,
+                                    component: WidgetComponents.RADIO
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }

@@ -2,6 +2,7 @@ import { WidgetTypes } from "@/config/widget";
 import { IFormWidget } from "@/types/slide/form";
 import { IWidget } from "@/types/slide/widget";
 import { getWidgetOptions } from "./attributes";
+import { getRadioConfigHtml } from "./components/radio";
 import { getSelectItemConfigHtml } from "./components/select";
 import { getWidgetClassName, getWidgetStyle } from "./style";
 
@@ -9,7 +10,8 @@ export const formTypes = [
     WidgetTypes.INPUT,
     WidgetTypes.SELECT,
     WidgetTypes.DAET_TIME_PICKER,
-    WidgetTypes.SWITCH
+    WidgetTypes.SWITCH,
+    WidgetTypes.RADIO_GROUP
 ];
 
 export const getSpecialConfigHtml = (
@@ -81,6 +83,9 @@ export const getWidgetHtml = (
         break;
     case WidgetTypes.FORM:
         formButtons = getFormButtonsHtml(widget);
+        break;
+    case WidgetTypes.RADIO:
+        specialConfig += getRadioConfigHtml(widget);
         break;
     }
     const events = getEvents(widget);

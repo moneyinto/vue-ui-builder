@@ -4,6 +4,7 @@ import { IDateTimePickerWidget, ITimePickerWidget } from "@/types/slide/dateTime
 import { IFormItemWidget, IFormWidget } from "@/types/slide/form";
 import { IColWidget, IRowWidget } from "@/types/slide/grid";
 import { IInputWidget } from "@/types/slide/input";
+import { IRadioGroupWidget, IRadioWidget } from "@/types/slide/radio";
 import { ISelectItemWidget, ISelectWidget } from "@/types/slide/select";
 import { ISwitchWidget } from "@/types/slide/switch";
 import { ITextWidget } from "@/types/slide/text";
@@ -51,6 +52,12 @@ export default () => {
             break;
         case WidgetTypes.BUTTON:
             widget = createButtonElement(id, name);
+            break;
+        case WidgetTypes.RADIO_GROUP:
+            widget = createRadioGroupElement(id, name);
+            break;
+        case WidgetTypes.RADIO:
+            widget = createRadioElement(id, name, element.value || "");
             break;
         }
 
@@ -180,6 +187,28 @@ export default () => {
             text: "按钮",
             component: WidgetComponents.BUTTON,
             type: WidgetTypes.BUTTON
+        };
+    };
+
+    const createRadioGroupElement = (id: string, name: string): IRadioGroupWidget => {
+        return {
+            id,
+            name,
+            component: WidgetComponents.RADIO_GROUP,
+            type: WidgetTypes.RADIO_GROUP,
+            widgetList: [
+                createRadioElement(createRandomCode(), "单选框", "单选框")
+            ]
+        };
+    };
+
+    const createRadioElement = (id: string, name: string, value: string): IRadioWidget => {
+        return {
+            id,
+            name,
+            value,
+            component: WidgetComponents.RADIO,
+            type: WidgetTypes.RADIO
         };
     };
 

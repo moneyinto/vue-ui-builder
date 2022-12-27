@@ -117,6 +117,7 @@ import FormItemStylePanel from "./components/FormItemStylePanel.vue";
 import FormStylePanel from "./components/FormStylePanel.vue";
 import SwitchStylePanel from "./components/SwitchStylePanel.vue";
 import ButtonStylePanel from "./components/ButtonStylePanel.vue";
+import RadioStylePanel from "./components/RadioStylePanel.vue";
 
 const store = useStore();
 const handleWidget = computed<IWidget>(() => store.handleWidget!);
@@ -155,7 +156,9 @@ const currentPanelComponent: ComputedRef | null = computed(() => {
         [WidgetTypes.SWITCH]: SwitchStylePanel,
         [WidgetTypes.DAET_TIME_PICKER]: DatePickerStylePanel,
         [WidgetTypes.TIME_PICKER]: TimePickerStylePanel,
-        [WidgetTypes.BUTTON]: ButtonStylePanel
+        [WidgetTypes.BUTTON]: ButtonStylePanel,
+        [WidgetTypes.RADIO_GROUP]: RadioStylePanel,
+        [WidgetTypes.RADIO]: null
     };
     return panelMap[handleWidget.value.type] || null;
 });

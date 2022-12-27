@@ -87,7 +87,7 @@
 
     <div
         class="drag-item move drag-child-element"
-        :class="{ 'active': isActive, 'widget-inline-block': data.type === WidgetTypes.BUTTON && !data.options?.block }"
+        :class="{ 'active': isActive, 'widget-inline-block': isInlineBlock }"
         v-else
         @click.stop="onSelectWidget()"
     >
@@ -123,6 +123,8 @@ const props = defineProps({
 });
 
 const { data } = toRefs(props);
+
+const isInlineBlock = computed(() => (data.value.type === WidgetTypes.BUTTON && !data.value.options?.block) || data.value.type === WidgetTypes.RADIO_GROUP);
 
 const isRow = computed(() => {
     return WidgetTypes.ROW === data.value.type;
