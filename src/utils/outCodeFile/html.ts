@@ -2,6 +2,7 @@ import { WidgetTypes } from "@/config/widget";
 import { IFormWidget } from "@/types/slide/form";
 import { IWidget } from "@/types/slide/widget";
 import { getWidgetOptions } from "./attributes";
+import { getCheckboxConfigHtml } from "./components/checkbox";
 import { getRadioConfigHtml } from "./components/radio";
 import { getSelectItemConfigHtml } from "./components/select";
 import { getWidgetClassName, getWidgetStyle } from "./style";
@@ -11,7 +12,8 @@ export const formTypes = [
     WidgetTypes.SELECT,
     WidgetTypes.DAET_TIME_PICKER,
     WidgetTypes.SWITCH,
-    WidgetTypes.RADIO_GROUP
+    WidgetTypes.RADIO_GROUP,
+    WidgetTypes.CHECKBOX_GROUP
 ];
 
 export const getSpecialConfigHtml = (
@@ -87,8 +89,12 @@ export const getWidgetHtml = (
     case WidgetTypes.RADIO:
         specialConfig += getRadioConfigHtml(widget);
         break;
+    case WidgetTypes.CHECKBOX:
+        specialConfig += getCheckboxConfigHtml(widget);
+        break;
     }
     const events = getEvents(widget);
-    const resultHtml = `<${widget.component}${ref}${specialConfig}${className}${style}${attributes}${events}>${"text" in widget ? widget.text : ""}${html}${formButtons}</${widget.component}>`;
+    const content = "text" in widget ? widget.text : ([WidgetTypes.CHECKBOX, WidgetTypes.RADIO].indexOf(widget.type) > -1 ? widget.name : "");
+    const resultHtml = `<${widget.component}${ref}${specialConfig}${className}${style}${attributes}${events}>${content}${html}${formButtons}</${widget.component}>`;
     return resultHtml;
 };

@@ -9,7 +9,7 @@ const addImports = (key: string, value: string, imports: ICustomObject<string[]>
     if (imports[key].indexOf(value) === -1) imports[key].push(value);
 };
 
-const getFormWidgetJs = (widget: IFormWidget, imports: ICustomObject<string[]>, formModel?: ICustomObject<string>) => {
+const getFormWidgetJs = (widget: IFormWidget, imports: ICustomObject<string[]>, formModel?: ICustomObject<unknown>) => {
     let formString = "";
     if (formModel) {
         formString += `const ${widget.modelName || "modelForm"}=reactive(${JSON.stringify(formModel)});`;
@@ -49,7 +49,7 @@ const getEventJS = (event: IFunc) => {
     return `const ${event.name} = (${(event.accept || []).join(", ")}) => { ${event.content} };`;
 };
 
-export const getWidgetJs = (widget: IWidget, imports: ICustomObject<string[]>, formModel?: ICustomObject<string>) => {
+export const getWidgetJs = (widget: IWidget, imports: ICustomObject<string[]>, formModel?: ICustomObject<unknown>) => {
     let formString = "";
     if (widget.type === WidgetTypes.FORM) {
         formString = getFormWidgetJs(widget, imports, formModel);

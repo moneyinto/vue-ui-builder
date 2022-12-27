@@ -51,7 +51,7 @@
             icon="Delete"
             class="drag-delete"
             circle
-            v-if="(data.type === WidgetTypes.FORM)"
+            v-if="data.type === WidgetTypes.FORM"
             @click.stop="dragDelete()"
         ></el-button>
         <draggable
@@ -87,7 +87,7 @@
 
     <div
         class="drag-item move drag-child-element"
-        :class="{ 'active': isActive, 'widget-inline-block': isInlineBlock }"
+        :class="{ active: isActive, 'widget-inline-block': isInlineBlock }"
         v-else
         @click.stop="onSelectWidget()"
     >
@@ -126,7 +126,13 @@ const props = defineProps({
 
 const { data } = toRefs(props);
 
-const isInlineBlock = computed(() => (data.value.type === WidgetTypes.BUTTON && !data.value.options?.block) || data.value.type === WidgetTypes.RADIO_GROUP);
+const isInlineBlock = computed(
+    () =>
+        (data.value.type === WidgetTypes.BUTTON &&
+            !data.value.options?.block) ||
+        data.value.type === WidgetTypes.RADIO_GROUP ||
+        data.value.type === WidgetTypes.CHECKBOX_GROUP
+);
 
 const isRow = computed(() => {
     return WidgetTypes.ROW === data.value.type;
@@ -176,7 +182,7 @@ const dragDelete = () => {
 
 const onDelete = (id: string) => {
     if ("widgetList" in data.value && data.value.widgetList) {
-        const i = data.value.widgetList.findIndex(widget => widget.id === id);
+        const i = data.value.widgetList.findIndex((widget) => widget.id === id);
         data.value.widgetList.splice(i, 1);
         if (store.handleWidget?.id === id) {
             setTimeout(() => {

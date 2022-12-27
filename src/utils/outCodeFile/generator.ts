@@ -6,7 +6,7 @@ import { getWidgetCss } from "./css";
 import { getWidgetHtml } from "./html";
 import { getWidgetJs } from "./js";
 
-const dealWidget = (widget: IWidget, imports: ICustomObject<string[]>, formModelName?: string, formItemModelName?: string, formModel?: { [key: string]: string }) => {
+const dealWidget = (widget: IWidget, imports: ICustomObject<string[]>, formModelName?: string, formItemModelName?: string, formModel?: { [key: string]: unknown }) => {
     let childHtml = "";
     let childJs = "";
     let childScopedCss = "";
@@ -26,7 +26,13 @@ const dealWidget = (widget: IWidget, imports: ICustomObject<string[]>, formModel
         }
         if (widget.type === WidgetTypes.FORM_ITEM) {
             _formItemModelName = widget.options?.prop || "";
-            if (_formModel && _formItemModelName) _formModel[_formItemModelName] = "";
+            if (_formModel && _formItemModelName) {
+                if (widget.widgetList.findIndex(widget => widget.type === WidgetTypes.CHECKBOX_GROUP) > -1) {
+                    _formModel[_formItemModelName] = [];
+                } else {
+                    _formModel[_formItemModelName] = "";
+                }
+            }
         }
 
         const { html, js, scopedCss } = dealWidgetList(widget.widgetList, imports, _formModelName, _formItemModelName, _formModel);
@@ -43,7 +49,7 @@ const dealWidget = (widget: IWidget, imports: ICustomObject<string[]>, formModel
     return { html: resultHtml, js: childJs + resultJs, scopedCss: childScopedCss + resultScopedCss };
 };
 
-const dealWidgetList = (widgetList: IWidget[], imports: ICustomObject<string[]>, formModelName?: string, formItemModelName?: string, formModel?: { [key: string]: string }) => {
+const dealWidgetList = (widgetList: IWidget[], imports: ICustomObject<string[]>, formModelName?: string, formItemModelName?: string, formModel?: { [key: string]: unknown }) => {
     let resultHtml = "";
     let resultJs = "";
     let resultScopedCss = "";

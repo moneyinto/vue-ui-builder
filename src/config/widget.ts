@@ -12,7 +12,9 @@ export const enum WidgetTypes {
     SWITCH = "switch",
     BUTTON = "button",
     RADIO = "radio",
-    RADIO_GROUP = "radio-group"
+    RADIO_GROUP = "radio-group",
+    CHECKBOX_GROUP = "checkbox-group",
+    CHECKBOX = "checkbox"
 }
 
 export const enum WidgetComponents {
@@ -29,7 +31,9 @@ export const enum WidgetComponents {
     SWITCH = "el-switch",
     BUTTON = "el-button",
     RADIO = "el-radio",
-    RADIO_GROUP = "el-radio-group"
+    RADIO_GROUP = "el-radio-group",
+    CHECKBOX_GROUP = "el-checkbox-group",
+    CHECKBOX = "el-checkbox"
 }
 
 export const enum BUTTON_TYPES {
@@ -58,7 +62,9 @@ export interface IWidgetList {
         | WidgetTypes.SWITCH
         | WidgetTypes.BUTTON
         | WidgetTypes.RADIO
-        | WidgetTypes.RADIO_GROUP;
+        | WidgetTypes.RADIO_GROUP
+        | WidgetTypes.CHECKBOX
+        | WidgetTypes.CHECKBOX_GROUP;
     icon?: string;
 }
 
@@ -149,6 +155,12 @@ export const WidgetGroupList: IWidgetGroup[] = [
                 name: "单选框",
                 component: WidgetComponents.RADIO_GROUP,
                 type: WidgetTypes.RADIO_GROUP,
+                icon: ""
+            },
+            {
+                name: "多选框",
+                component: WidgetComponents.CHECKBOX_GROUP,
+                type: WidgetTypes.CHECKBOX_GROUP,
                 icon: ""
             }
         ]

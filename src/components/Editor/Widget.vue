@@ -22,6 +22,8 @@ import ElSwitchRender from "../Preview/ElSwitchRender.vue";
 import ElButtonRender from "../Preview/ElButtonRender.vue";
 import ElRadioGroupRender from "../Preview/ElRadioGroupRender.vue";
 import ElRadioRender from "../Preview/ElRadioRender.vue";
+import ElCheckboxGroupRender from "../Preview/ElCheckboxGroupRender.vue";
+import ElCheckboxRender from "../Preview/ElCheckboxRender.vue";
 
 const props = defineProps({
     widget: {
@@ -47,7 +49,9 @@ const renderComponent = computed(() => {
         [WidgetComponents.SWITCH]: ElSwitchRender,
         [WidgetComponents.BUTTON]: ElButtonRender,
         [WidgetComponents.RADIO_GROUP]: ElRadioGroupRender,
-        [WidgetComponents.RADIO]: ElRadioRender
+        [WidgetComponents.RADIO]: ElRadioRender,
+        [WidgetComponents.CHECKBOX_GROUP]: ElCheckboxGroupRender,
+        [WidgetComponents.CHECKBOX]: ElCheckboxRender
     }[widget.value.component];
 });
 </script>

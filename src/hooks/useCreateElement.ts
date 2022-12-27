@@ -1,5 +1,6 @@
 import { IWidgetList, WidgetComponents, WidgetTypes } from "@/config/widget";
 import { IButtonWidget } from "@/types/slide/button";
+import { ICheckboxGroupWidget, ICheckboxWidget } from "@/types/slide/checkbox";
 import { IDateTimePickerWidget, ITimePickerWidget } from "@/types/slide/dateTime";
 import { IFormItemWidget, IFormWidget } from "@/types/slide/form";
 import { IColWidget, IRowWidget } from "@/types/slide/grid";
@@ -58,6 +59,12 @@ export default () => {
             break;
         case WidgetTypes.RADIO:
             widget = createRadioElement(id, name, element.value || "");
+            break;
+        case WidgetTypes.CHECKBOX_GROUP:
+            widget = createCheckboxGroupElement(id, name);
+            break;
+        case WidgetTypes.CHECKBOX:
+            widget = createCheckboxElement(id, name, element.value || "");
             break;
         }
 
@@ -209,6 +216,28 @@ export default () => {
             value,
             component: WidgetComponents.RADIO,
             type: WidgetTypes.RADIO
+        };
+    };
+
+    const createCheckboxGroupElement = (id: string, name: string): ICheckboxGroupWidget => {
+        return {
+            id,
+            name,
+            component: WidgetComponents.CHECKBOX_GROUP,
+            type: WidgetTypes.CHECKBOX_GROUP,
+            widgetList: [
+                createCheckboxElement(createRandomCode(), "多选框", "多选框")
+            ]
+        };
+    };
+
+    const createCheckboxElement = (id: string, name: string, value: string): ICheckboxWidget => {
+        return {
+            id,
+            name,
+            value,
+            component: WidgetComponents.CHECKBOX,
+            type: WidgetTypes.CHECKBOX
         };
     };
 

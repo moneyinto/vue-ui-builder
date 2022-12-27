@@ -1,6 +1,6 @@
-import { IRadioWidget } from "@/types/slide/radio";
+import { ICheckboxWidget } from "@/types/slide/checkbox";
 
-export const getRadioConfigHtml = (widget: IRadioWidget) => {
+export const getCheckboxConfigHtml = (widget: ICheckboxWidget) => {
     let specialConfigHtml = "";
 
     if (widget.name) {

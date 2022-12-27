@@ -361,6 +361,42 @@ export const previewSlide: ISlide = {
                             ]
                         }
                     ]
+                },
+                {
+                    id: createRandomCode(),
+                    name: "年级",
+                    value: "grade",
+                    type: WidgetTypes.FORM_ITEM,
+                    component: WidgetComponents.FORM_ITEM,
+                    options: {
+                        label: "年级",
+                        prop: "grade"
+                    },
+                    widgetList: [
+                        {
+                            id: createRandomCode(),
+                            name: "",
+                            value: "",
+                            type: WidgetTypes.CHECKBOX_GROUP,
+                            component: WidgetComponents.CHECKBOX_GROUP,
+                            widgetList: [
+                                {
+                                    id: createRandomCode(),
+                                    name: "一年级",
+                                    value: "1",
+                                    type: WidgetTypes.CHECKBOX,
+                                    component: WidgetComponents.CHECKBOX
+                                },
+                                {
+                                    id: createRandomCode(),
+                                    name: "二年级",
+                                    value: "2",
+                                    type: WidgetTypes.CHECKBOX,
+                                    component: WidgetComponents.CHECKBOX
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         }
