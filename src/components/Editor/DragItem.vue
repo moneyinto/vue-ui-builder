@@ -113,6 +113,8 @@ import DragItem from "./DragItem.vue";
 import Widget from "./Widget.vue";
 import { useStore } from "@/store";
 
+const store = useStore();
+
 const emit = defineEmits(["onDelete"]);
 
 const props = defineProps({
@@ -176,10 +178,14 @@ const onDelete = (id: string) => {
     if ("widgetList" in data.value && data.value.widgetList) {
         const i = data.value.widgetList.findIndex(widget => widget.id === id);
         data.value.widgetList.splice(i, 1);
+        if (store.handleWidget?.id === id) {
+            setTimeout(() => {
+                store.handleWidget = null;
+            });
+        }
     }
 };
 
-const store = useStore();
 const isActive = computed(() => store.handleWidget?.id === data.value.id);
 const onSelectWidget = () => {
     store.handleWidget = data.value;

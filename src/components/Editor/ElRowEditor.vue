@@ -35,6 +35,9 @@ import useAttributes from "../hooks/useAttributes";
 import draggable from "vuedraggable";
 import useCreateElement from "@/hooks/useCreateElement";
 import { IDragChange } from "@/types";
+import { useStore } from "@/store";
+
+const store = useStore();
 
 const emit = defineEmits(["onDelete"]);
 
@@ -78,6 +81,11 @@ const onDelete = (id: string) => {
     if ("widgetList" in widget.value && widget.value.widgetList) {
         const i = widget.value.widgetList.findIndex(widget => widget.id === id);
         widget.value.widgetList.splice(i, 1);
+        if (store.handleWidget?.id === id) {
+            setTimeout(() => {
+                store.handleWidget = null;
+            });
+        }
     }
 };
 </script>

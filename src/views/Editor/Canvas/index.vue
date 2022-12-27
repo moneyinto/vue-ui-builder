@@ -41,6 +41,11 @@ const onChange = (data: IDragChange) => {
 const onDelete = (id: string) => {
     const i = store.widgetList.findIndex(widget => widget.id === id);
     store.widgetList.splice(i, 1);
+    if (store.handleWidget?.id === id) {
+        setTimeout(() => {
+            store.handleWidget = null;
+        });
+    }
 };
 </script>
 
