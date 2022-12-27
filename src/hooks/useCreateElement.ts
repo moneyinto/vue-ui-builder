@@ -7,6 +7,7 @@ import { IColWidget, IRowWidget } from "@/types/slide/grid";
 import { IInputWidget } from "@/types/slide/input";
 import { IRadioGroupWidget, IRadioWidget } from "@/types/slide/radio";
 import { ISelectItemWidget, ISelectWidget } from "@/types/slide/select";
+import { ISliderWidget } from "@/types/slide/slider";
 import { ISwitchWidget } from "@/types/slide/switch";
 import { ITextWidget } from "@/types/slide/text";
 import { IWidget } from "@/types/slide/widget";
@@ -65,6 +66,9 @@ export default () => {
             break;
         case WidgetTypes.CHECKBOX:
             widget = createCheckboxElement(id, name, element.value || "");
+            break;
+        case WidgetTypes.SLIDER:
+            widget = createSliderElement(id, name);
             break;
         }
 
@@ -238,6 +242,15 @@ export default () => {
             value,
             component: WidgetComponents.CHECKBOX,
             type: WidgetTypes.CHECKBOX
+        };
+    };
+
+    const createSliderElement = (id: string, name: string): ISliderWidget => {
+        return {
+            id,
+            name,
+            component: WidgetComponents.SLIDER,
+            type: WidgetTypes.SLIDER
         };
     };
 

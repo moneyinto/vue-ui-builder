@@ -14,7 +14,8 @@ export const enum WidgetTypes {
     RADIO = "radio",
     RADIO_GROUP = "radio-group",
     CHECKBOX_GROUP = "checkbox-group",
-    CHECKBOX = "checkbox"
+    CHECKBOX = "checkbox",
+    SLIDER = "slider"
 }
 
 export const enum WidgetComponents {
@@ -33,7 +34,8 @@ export const enum WidgetComponents {
     RADIO = "el-radio",
     RADIO_GROUP = "el-radio-group",
     CHECKBOX_GROUP = "el-checkbox-group",
-    CHECKBOX = "el-checkbox"
+    CHECKBOX = "el-checkbox",
+    SLIDER = "el-slider"
 }
 
 export const enum BUTTON_TYPES {
@@ -64,7 +66,8 @@ export interface IWidgetList {
         | WidgetTypes.RADIO
         | WidgetTypes.RADIO_GROUP
         | WidgetTypes.CHECKBOX
-        | WidgetTypes.CHECKBOX_GROUP;
+        | WidgetTypes.CHECKBOX_GROUP
+        | WidgetTypes.SLIDER;
     icon?: string;
 }
 
@@ -161,6 +164,12 @@ export const WidgetGroupList: IWidgetGroup[] = [
                 name: "多选框",
                 component: WidgetComponents.CHECKBOX_GROUP,
                 type: WidgetTypes.CHECKBOX_GROUP,
+                icon: ""
+            },
+            {
+                name: "滑块",
+                component: WidgetComponents.SLIDER,
+                type: WidgetTypes.SLIDER,
                 icon: ""
             }
         ]

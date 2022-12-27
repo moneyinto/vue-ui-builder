@@ -14,6 +14,5 @@ export default (widget: Ref<Exclude<IWidget, ITextWidget>>) => {
 
         return _attributes;
     });
-
     return attributes;
 };
