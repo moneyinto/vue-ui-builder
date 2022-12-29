@@ -113,6 +113,12 @@ export const getWidgetHtml = (
         </template>`;
     }
 
+    if (WidgetTypes.CARD === widget.type && widget.header) {
+        content = `<template #header>
+            ${widget.headerText || "标题"}
+        </template>`;
+    }
+
     const resultHtml = `<${widget.component}${ref}${specialConfig}${className}${style}${attributes}${events}>${content}${html}${formButtons}</${widget.component}>`;
     return resultHtml;
 };
