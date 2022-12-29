@@ -34,6 +34,8 @@ const onChange = (data: IDragChange) => {
             store.widgetList[added.newIndex] = added.element;
         } else {
             store.widgetList[added.newIndex] = createElement(added.element);
+
+            store.handleWidget = store.widgetList[added.newIndex];
         }
     }
 };

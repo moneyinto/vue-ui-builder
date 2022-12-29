@@ -171,6 +171,8 @@ const onChange = (dragData: IDragChange) => {
                 data.value.widgetList[added.newIndex] = createElement(
                     added.element
                 );
+
+                store.handleWidget = data.value.widgetList[added.newIndex];
             }
         }
     }
