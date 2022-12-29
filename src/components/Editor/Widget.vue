@@ -25,6 +25,7 @@ import ElRadioRender from "../Preview/ElRadioRender.vue";
 import ElCheckboxGroupRender from "../Preview/ElCheckboxGroupRender.vue";
 import ElCheckboxRender from "../Preview/ElCheckboxRender.vue";
 import ElSliderRender from "../Preview/ElSliderRender.vue";
+import ElCardEditor from "./ElCardEditor.vue";
 
 const props = defineProps({
     widget: {
@@ -53,7 +54,8 @@ const renderComponent = computed(() => {
         [WidgetComponents.RADIO]: ElRadioRender,
         [WidgetComponents.CHECKBOX_GROUP]: ElCheckboxGroupRender,
         [WidgetComponents.CHECKBOX]: ElCheckboxRender,
-        [WidgetComponents.SLIDER]: ElSliderRender
+        [WidgetComponents.SLIDER]: ElSliderRender,
+        [WidgetComponents.CARD]: ElCardEditor
     }[widget.value.component];
 });
 </script>

@@ -1,5 +1,6 @@
 import { IWidgetList, WidgetComponents, WidgetTypes } from "@/config/widget";
 import { IButtonWidget } from "@/types/slide/button";
+import { ICardWidget } from "@/types/slide/card";
 import { ICheckboxGroupWidget, ICheckboxWidget } from "@/types/slide/checkbox";
 import { IDateTimePickerWidget, ITimePickerWidget } from "@/types/slide/dateTime";
 import { IFormItemWidget, IFormWidget } from "@/types/slide/form";
@@ -69,6 +70,9 @@ export default () => {
             break;
         case WidgetTypes.SLIDER:
             widget = createSliderElement(id, name);
+            break;
+        case WidgetTypes.CARD:
+            widget = createCardElement(id, name);
             break;
         }
 
@@ -251,6 +255,18 @@ export default () => {
             name,
             component: WidgetComponents.SLIDER,
             type: WidgetTypes.SLIDER
+        };
+    };
+
+    const createCardElement = (id: string, name: string): ICardWidget => {
+        return {
+            id,
+            name,
+            header: false,
+            headerText: "",
+            component: WidgetComponents.CARD,
+            type: WidgetTypes.CARD,
+            widgetList: []
         };
     };
 

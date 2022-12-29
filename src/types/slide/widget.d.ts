@@ -1,5 +1,6 @@
 import { IClassNames, IEvents, IStyle } from "./base";
 import { IButtonOptions, IButtonWidget } from "./button";
+import { ICardOptions, ICardWidget } from "./card";
 import { ICheckboxGroupWidget, ICheckboxOptions, ICheckboxWidget } from "./checkbox";
 import {
     IDateTimeOptions,
@@ -68,7 +69,8 @@ export type IWidget =
     | IRadioWidget
     | ICheckboxGroupWidget
     | ICheckboxWidget
-    | ISliderWidget;;
+    | ISliderWidget
+    | ICardWidget;
 
 export type IWidgetOptions =
     | IColOptions
@@ -82,4 +84,5 @@ export type IWidgetOptions =
     | IButtonOptions
     | IRadioOptions
     | ICheckboxOptions
-    | ISliderOptions;
+    | ISliderOptions
+    | ICardOptions;

@@ -120,6 +120,7 @@ import ButtonStylePanel from "./components/ButtonStylePanel.vue";
 import RadioStylePanel from "./components/RadioStylePanel.vue";
 import CheckboxStylePanel from "./components/CheckboxStylePanel.vue";
 import SliderStylePanel from "./components/SliderStylePanel.vue";
+import CardStylePanel from "./components/CardStylePanel.vue";
 
 const store = useStore();
 const handleWidget = computed<IWidget>(() => store.handleWidget!);
@@ -163,7 +164,8 @@ const currentPanelComponent: ComputedRef | null = computed(() => {
         [WidgetTypes.RADIO]: null,
         [WidgetTypes.CHECKBOX_GROUP]: CheckboxStylePanel,
         [WidgetTypes.CHECKBOX]: null,
-        [WidgetTypes.SLIDER]: SliderStylePanel
+        [WidgetTypes.SLIDER]: SliderStylePanel,
+        [WidgetTypes.CARD]: CardStylePanel
     };
     return panelMap[handleWidget.value.type] || null;
 });
