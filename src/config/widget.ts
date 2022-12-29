@@ -26,6 +26,7 @@ export const enum WidgetComponents {
     FORM = "el-form",
     FORM_ITEM = "el-form-item",
     INPUT = "el-input",
+    INPUT_NUMBER = "el-input-number",
     SELECT = "el-select",
     SELECT_ITEM = "el-option",
     DAET_TIME_PICKER = "el-date-picker",

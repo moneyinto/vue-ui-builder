@@ -44,6 +44,7 @@ const renderComponent = computed(() => {
         [WidgetComponents.FORM]: ElFormEditor,
         [WidgetComponents.FORM_ITEM]: ElFormItemEditor,
         [WidgetComponents.INPUT]: ElInputRender,
+        [WidgetComponents.INPUT_NUMBER]: ElInputRender,
         [WidgetComponents.SELECT]: ElSelectRender,
         [WidgetComponents.SELECT_ITEM]: ElSelectItemRender,
         [WidgetComponents.DAET_TIME_PICKER]: ElDateTimePickerRender,

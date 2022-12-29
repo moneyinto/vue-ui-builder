@@ -69,7 +69,7 @@ export const getWidgetHtml = (
     formModelName?: string,
     formItemModelName?: string
 ) => {
-    const attributes = "options" in widget ? getWidgetOptions(widget.options) : "";
+    const attributes = "options" in widget ? getWidgetOptions(widget) : "";
     const style = getWidgetStyle(widget.style);
     const className = getWidgetClassName(widget.type, widget.classNames);
     const ref = widget.ref ? ` ref="${widget.ref}"` : "";

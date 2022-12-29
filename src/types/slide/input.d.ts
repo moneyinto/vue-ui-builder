@@ -13,6 +13,6 @@ export interface IInputOptions {
 
 export interface IInputWidget extends IBaseWidget {
     type: WidgetTypes.INPUT;
-    component: WidgetComponents.INPUT;
+    component: WidgetComponents.INPUT | WidgetComponents.INPUT_NUMBER;
     options?: IInputOptions;
 }
