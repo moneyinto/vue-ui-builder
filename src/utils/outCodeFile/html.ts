@@ -93,8 +93,26 @@ export const getWidgetHtml = (
         specialConfig += getCheckboxConfigHtml(widget);
         break;
     }
+
     const events = getEvents(widget);
-    const content = "text" in widget ? widget.text : ([WidgetTypes.CHECKBOX, WidgetTypes.RADIO].indexOf(widget.type) > -1 ? widget.name : "");
+
+    let content = "";
+    if ("text" in widget) {
+        content = widget.text;
+    }
+
+    if ([WidgetTypes.CHECKBOX, WidgetTypes.RADIO].indexOf(widget.type) > -1) {
+        content = widget.name;
+    }
+
+    if (WidgetTypes.IMAGE === widget.type && widget.placeholder) {
+        content = `<template #placeholder>
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                ${widget.placeholderText}
+            </div>
+        </template>`;
+    }
+
     const resultHtml = `<${widget.component}${ref}${specialConfig}${className}${style}${attributes}${events}>${content}${html}${formButtons}</${widget.component}>`;
     return resultHtml;
 };

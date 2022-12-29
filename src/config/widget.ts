@@ -16,7 +16,8 @@ export const enum WidgetTypes {
     CHECKBOX_GROUP = "checkbox-group",
     CHECKBOX = "checkbox",
     SLIDER = "slider",
-    CARD = "card"
+    CARD = "card",
+    IMAGE = "image"
 }
 
 export const enum WidgetComponents {
@@ -38,7 +39,8 @@ export const enum WidgetComponents {
     CHECKBOX_GROUP = "el-checkbox-group",
     CHECKBOX = "el-checkbox",
     SLIDER = "el-slider",
-    CARD = "el-card"
+    CARD = "el-card",
+    IMAGE = "el-image"
 }
 
 export const enum BUTTON_TYPES {
@@ -71,7 +73,8 @@ export interface IWidgetList {
         | WidgetTypes.CHECKBOX
         | WidgetTypes.CHECKBOX_GROUP
         | WidgetTypes.SLIDER
-        | WidgetTypes.CARD;
+        | WidgetTypes.CARD
+        | WidgetTypes.IMAGE;
     icon?: string;
 }
 
@@ -192,6 +195,12 @@ export const WidgetGroupList: IWidgetGroup[] = [
                 name: "按钮",
                 component: WidgetComponents.BUTTON,
                 type: WidgetTypes.BUTTON,
+                icon: ""
+            },
+            {
+                name: "图片",
+                component: WidgetComponents.IMAGE,
+                type: WidgetTypes.IMAGE,
                 icon: ""
             }
         ]

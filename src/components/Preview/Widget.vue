@@ -24,6 +24,7 @@ import ElCheckboxGroupRender from "./ElCheckboxGroupRender.vue";
 import ElCheckboxRender from "./ElCheckboxRender.vue";
 import ElSliderRender from "./ElSliderRender.vue";
 import ElCardRender from "./ElCardRender.vue";
+import ElImageRender from "./ElImageRender.vue";
 
 const props = defineProps({
     widget: {
@@ -54,7 +55,8 @@ const renderComponent = computed(() => {
         [WidgetComponents.CHECKBOX_GROUP]: ElCheckboxGroupRender,
         [WidgetComponents.CHECKBOX]: ElCheckboxRender,
         [WidgetComponents.SLIDER]: ElSliderRender,
-        [WidgetComponents.CARD]: ElCardRender
+        [WidgetComponents.CARD]: ElCardRender,
+        [WidgetComponents.IMAGE]: ElImageRender
     }[widget.value.component];
 });
 </script>

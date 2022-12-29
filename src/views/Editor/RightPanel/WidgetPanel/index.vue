@@ -121,6 +121,7 @@ import RadioStylePanel from "./components/RadioStylePanel.vue";
 import CheckboxStylePanel from "./components/CheckboxStylePanel.vue";
 import SliderStylePanel from "./components/SliderStylePanel.vue";
 import CardStylePanel from "./components/CardStylePanel.vue";
+import ImageStylePanel from "./components/ImageStylePanel.vue";
 
 const store = useStore();
 const handleWidget = computed<IWidget>(() => store.handleWidget!);
@@ -165,7 +166,8 @@ const currentPanelComponent: ComputedRef | null = computed(() => {
         [WidgetTypes.CHECKBOX_GROUP]: CheckboxStylePanel,
         [WidgetTypes.CHECKBOX]: null,
         [WidgetTypes.SLIDER]: SliderStylePanel,
-        [WidgetTypes.CARD]: CardStylePanel
+        [WidgetTypes.CARD]: CardStylePanel,
+        [WidgetTypes.IMAGE]: ImageStylePanel
     };
     return panelMap[handleWidget.value.type] || null;
 });
@@ -294,5 +296,11 @@ const updateClassName = () => {
     .class-item-btn {
         padding: 0;
     }
+}
+</style>
+
+<style>
+.element-panel .el-form-item {
+    align-items: flex-start;
 }
 </style>

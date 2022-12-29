@@ -68,7 +68,7 @@ watch(modelValue, () => {
 });
 
 const cmOptions = ref({
-    mode: "text/x-vue", // Language mode
+    mode: "htmlmixed", // Language mode
     theme: "ayu-dark", // Theme
     lineNumbers: true, // Show line number
     smartIndent: true, // Smart indent

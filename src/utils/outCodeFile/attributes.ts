@@ -8,6 +8,11 @@ export const getWidgetOptions = (widget?: Exclude<IWidget, ITextWidget>) => {
     let attributes = "";
     Object.keys(options).forEach((key) => {
         if (widget.component === WidgetComponents.INPUT_NUMBER && key === "placeholder") return;
+        if (widget.component === WidgetComponents.IMAGE && !widget.preview && (key === "previewSrcList" || key === "initialIndex")) return;
+        if (widget.component === WidgetComponents.IMAGE && widget.preview && key === "previewSrcList") {
+            attributes += ` :${key}='${options[key] ? JSON.stringify(options[key]) : "[]"}'`;
+            return;
+        }
 
         if (typeof options[key] === "string") {
             attributes += ` ${key}="${options[key]}"`;

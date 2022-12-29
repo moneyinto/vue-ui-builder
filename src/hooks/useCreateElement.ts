@@ -5,6 +5,7 @@ import { ICheckboxGroupWidget, ICheckboxWidget } from "@/types/slide/checkbox";
 import { IDateTimePickerWidget, ITimePickerWidget } from "@/types/slide/dateTime";
 import { IFormItemWidget, IFormWidget } from "@/types/slide/form";
 import { IColWidget, IRowWidget } from "@/types/slide/grid";
+import { IImageWidget } from "@/types/slide/image";
 import { IInputWidget } from "@/types/slide/input";
 import { IRadioGroupWidget, IRadioWidget } from "@/types/slide/radio";
 import { ISelectItemWidget, ISelectWidget } from "@/types/slide/select";
@@ -73,6 +74,9 @@ export default () => {
             break;
         case WidgetTypes.CARD:
             widget = createCardElement(id, name);
+            break;
+        case WidgetTypes.IMAGE:
+            widget = createImageElement(id, name);
             break;
         }
 
@@ -267,6 +271,21 @@ export default () => {
             component: WidgetComponents.CARD,
             type: WidgetTypes.CARD,
             widgetList: []
+        };
+    };
+
+    const createImageElement = (id: string, name: string): IImageWidget => {
+        return {
+            id,
+            name,
+            placeholder: false,
+            placeholderText: "",
+            preview: false,
+            component: WidgetComponents.IMAGE,
+            type: WidgetTypes.IMAGE,
+            options: {
+                src: "https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg"
+            }
         };
     };
 

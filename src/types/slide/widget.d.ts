@@ -14,6 +14,7 @@ import {
     IFormWidget
 } from "./form";
 import { IColOptions, IColWidget, IRowOptions, IRowWidget } from "./grid";
+import { IImageOptions, IImageWidget } from "./image";
 import { IInputOptions, IInputWidget } from "./input";
 import { IRadioGroupWidget, IRadioOptions, IRadioWidget } from "./radio";
 import { ISelectItemWidget, ISelectOptions, ISelectWidget } from "./select";
@@ -70,7 +71,8 @@ export type IWidget =
     | ICheckboxGroupWidget
     | ICheckboxWidget
     | ISliderWidget
-    | ICardWidget;
+    | ICardWidget
+    | IImageWidget;
 
 export type IWidgetOptions =
     | IColOptions
@@ -85,4 +87,5 @@ export type IWidgetOptions =
     | IRadioOptions
     | ICheckboxOptions
     | ISliderOptions
-    | ICardOptions;
+    | ICardOptions
+    | IImageOptions;
