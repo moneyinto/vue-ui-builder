@@ -34,9 +34,10 @@ import draggable from "vuedraggable";
 
 <style lang="scss" scoped>
 .editor-left-components {
-    width: 360px;
+    width: 370px;
     border-right: 1px solid #eee;
     padding: 20px 15px;
+    overflow-y: auto;
 }
 
 .editor-module {}

@@ -19,5 +19,6 @@ const handleWidget = computed<IWidget>(() => store.handleWidget!);
     width: 360px;
     border-left: 1px solid #eee;
     padding: 15px;
+    overflow-y: auto;
 }
 </style>

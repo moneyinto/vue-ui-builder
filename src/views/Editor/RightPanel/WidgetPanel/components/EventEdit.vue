@@ -7,7 +7,7 @@
     >
         <Codemirror
             class="codemirror-body"
-            v-model:value="code"
+            v-model:value="codeValue"
             :options="cmOptions"
             :border="true"
         />
@@ -30,7 +30,7 @@ import "codemirror/mode/javascript/javascript.js";
 import "codemirror/theme/ayu-dark.css";
 import { ref, toRefs, watch } from "vue";
 
-const code = ref("");
+const codeValue = ref("");
 const props = defineProps({
     modelValue: {
         type: Boolean
@@ -46,7 +46,7 @@ const { modelValue } = toRefs(props);
 const emit = defineEmits(["close", "save"]);
 
 const initCode = () => {
-    code.value = props.code;
+    codeValue.value = props.code;
 };
 
 watch(modelValue, () => {
@@ -70,7 +70,7 @@ const cancel = () => {
 };
 
 const save = () => {
-    emit("save", code.value);
+    emit("save", codeValue.value);
 };
 </script>
 
