@@ -31,7 +31,7 @@ export default defineConfig(({ mode, command }) => {
     const env = loadEnv(mode, process.cwd());
 
     return {
-        base: "/",
+        base: "./",
         // define: {
         //     global: {},
         //     process: process
